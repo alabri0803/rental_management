@@ -20,13 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.utils.translation import gettext_lazy as _
 from django.conf.urls.i18n import i18n_patterns
+from buildings.admin import custom_admin_site
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),    
 ]
 
 urlpatterns += i18n_patterns(
-    path(_('admin/'), admin.site.urls),
+    path(_('admin/'), custom_admin_site.urls),
     path('', include('buildings.urls', namespace='buildings')),
     prefix_default_language=False
 )
