@@ -38,8 +38,8 @@ class FloorListView(ListView):
   context_object_name = 'floors'
 
   def get_queryset(self):
-    building = get_object_or_404(Building, pk=self.kwargs['building_id'])
-    return building.floors.all().order_by('number')
+    self.building = get_object_or_404(Building, pk=self.kwargs['building_id'])
+    return self.building.floors.all().order_by('number')
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -53,7 +53,7 @@ class UnitListView(ListView):
   paginate_by = 10
 
   def get_queryset(self):
-    floor = get_object_or_404(Floor, pk=self.kwargs['floor_id'])
+    self.floor = get_object_or_404(Floor, pk=self.kwargs['floor_id'])
     return self.floor.units.all().order_by('unit_number')
 
   def get_context_data(self, **kwargs):

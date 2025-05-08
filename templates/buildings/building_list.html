@@ -29,14 +29,14 @@
         {% for building in buildings %}
         <tr>
           <td>
-            <a href="{% url 'building_detail' building.pk %}">{{ building.name }}</a>
+            <a href="{% url 'buildings:building_detail' building.pk %}">{{ building.name }}</a>
             <small>
               {{ building.address|truncatechars:30 }}
             </small>
           </td>
-          <td>{{ building.get_type_display }}</td>
+          <td>{{ building.get_building_type_display }}</td>
           <td>{{ building.governorate.name }}</td>
-          <td>{{ building.wilaya.name }}</td>
+          <td>{{ building.wilayat.name }}</td>
           <td>{{ building.unit_count }}</td>
           <td class="actions">
             <a href="{% url 'buildings:floor_list' building.id %}" class="btn btn-sm btn-view">

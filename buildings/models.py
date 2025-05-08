@@ -38,7 +38,7 @@ class Wilayat(models.Model):
     verbose_name=_("الولاية")
   )
   code = models.CharField(
-    max_length=3,
+    max_length=6,
     unique=True,
     verbose_name=_("الكود")
   )
