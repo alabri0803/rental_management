@@ -1,0 +1,37 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% trans "نظام إدارة العقارات - عُمان" %}{% endblock %}</title>
+  <!-- الخطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="{% static 'buildings/css/style.css' %}">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <link rel="stylesheet" href="{% static 'buildings/css/rtl.css' %}">
+  {% endif %}
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'buildings/images/oman-favicon.png' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  {% include 'buildings/partials/_navbar.html' %}
+  <main class="container">
+    {% if messages %}
+      <div class="messages">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+        </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'buildings/partials/_footer.html' %}
+  <script src="{% static 'buildings/js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

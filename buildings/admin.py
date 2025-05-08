@@ -9,7 +9,7 @@ class CustomAdminSite(admin.AdminSite):
   site_title = _("إدارة العقارات")
   index_title = _("مرحبا بكم في الإدارة")
 
-@admin.register(Governorate, site=CustomAdminSite)
+@admin.register(Governorate, site=CustomAdminSite())
 class GovernorateAdmin(ImportExportModelAdmin):
   list_display = ('name', 'code', 'is_active')
   list_editable = ('is_active',)
@@ -17,7 +17,7 @@ class GovernorateAdmin(ImportExportModelAdmin):
   list_filter = ('is_active',)
   ordering = ('name',)
 
-@admin.register(Wilayat, site=CustomAdminSite)
+@admin.register(Wilayat, site=CustomAdminSite())
 class WilayatAdmin(ImportExportModelAdmin):
   list_display = ('name', 'governorate', 'code', 'postal_code', 'is_active')
   list_editable = ('is_active', 'postal_code')
@@ -31,7 +31,7 @@ class FloorInline(admin.TabularInline):
   fields = ('number', 'description', 'floor_plan')
   readonly_fields = ('created_at', 'updated_at')
 
-@admin.register(Building, site=CustomAdminSite)
+@admin.register(Building, site=CustomAdminSite())
 class BuildingAdmin(ImportExportModelAdmin):
   list_display = ('name', 'building_type', 'governorate', 'wilayat', 'owner_name', 'owner_phone')
   list_filter = ('building_type', ('governorate', RelatedDropdownFilter), 'wilayat')
@@ -56,7 +56,7 @@ class UnitInline(admin.TabularInline):
   fields = ('unit_number', 'unit_type', 'area', 'monthly_rent', 'is_available')
   readonly_fields = ('created_at', 'updated_at')
 
-@admin.register(Floor, site=CustomAdminSite)
+@admin.register(Floor, site=CustomAdminSite())
 class FloorAdmin(ImportExportModelAdmin):
   list_display = ('building', 'number', 'units_count')
   list_filter = (('building', RelatedDropdownFilter),)
@@ -67,7 +67,7 @@ class FloorAdmin(ImportExportModelAdmin):
     return obj.units.count()
   units_count.short_description = _("عدد الوحدات")
 
-@admin.register(Unit, site=CustomAdminSite)
+@admin.register(Unit, site=CustomAdminSite())
 class UnitAdmin(ImportExportModelAdmin):
   list_display = ('unit_number', 'unit_type', 'floor', 'area', 'is_available')
   list_filter = ('unit_type', 'is_available', ('floor__building', RelatedDropdownFilter),)

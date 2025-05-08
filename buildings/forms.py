@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from .models import Unit, Building, Floor, Governorate
+from .models import Unit, Building, Floor, Governorate, Wilayat
 from django.core.validators import MinValueValidator
 from django.forms import inlineformset_factory
 

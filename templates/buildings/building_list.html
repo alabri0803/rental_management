@@ -1,207 +1,63 @@
+{% extends 'buildings/base.html' %}
 {% load i18n static %}
-
-<!DOCTYPE html>
-<html lang="{{ request.LANGUAGE_CODE }}" dir="{% if USE_RTL %}rtl{% else %}ltr{% endif %}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% trans "قائمة المباني" %} - {% trans "نظام إدارة التأجير" %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'buildings/css/style.css' %}">
-    {% if USE_RTL %}
-    <link rel="stylesheet" href="{% static 'buildings/css/rtl.css' %}">
-    {% endif %}
-    <link rel="icon" href="{% static 'buildings/images/oman-favicon.png' %}">
-</head>
-<body>
-    <!-- شريط التنقل العلوي -->
-    <nav class="omani-navbar">
-        <div class="container">
-            <a href="#" class="brand-logo">
-                <img src="{% static 'buildings/images/oman-logo.png' %}" alt="شعار عُمان" width="40">
-                <span>{% trans "إدارة المباني" %}</span>
+{% block content %}
+<div class="page-header">
+  <h1>{% trans "قائمة المباني" %}</h1>
+  <div class="header-actions">
+    <a href="#" class="btn btn-primary">
+      <i class="icon-plus"></i>
+      {% trans "إضافة مبنى جديد" %}
+    </a>
+  </div>
+</div>
+{% include 'buildings/partials/_filters.html' %}
+<div class="buildings-container">
+  {% if buildings %}
+  <div class="responsive-table">
+    <table class="omani-table">
+      <thead>
+        <tr>
+          <th>{% trans "اسم المبني" %}</th>
+          <th>{% trans "النوع" %}</th>
+          <th>{% trans "المحافظة" %}</th>
+          <th>{% trans "الولاية" %}</th>
+          <th>{% trans "الوحدات" %}</th>
+          <th>{% trans "الإجراءات" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for building in buildings %}
+        <tr>
+          <td>
+            <a href="{% url 'building_detail' building.pk %}">{{ building.name }}</a>
+            <small>
+              {{ building.address|truncatechars:30 }}
+            </small>
+          </td>
+          <td>{{ building.get_type_display }}</td>
+          <td>{{ building.governorate.name }}</td>
+          <td>{{ building.wilaya.name }}</td>
+          <td>{{ building.unit_count }}</td>
+          <td class="actions">
+            <a href="{% url 'buildings:floor_list' building.id %}" class="btn btn-sm btn-view">
+              <i class="icon-eye"></i>
             </a>
-            <div class="nav-links">
-                <a href="#" class="active">{% trans "المباني" %}</a>
-                <a href="#">{% trans "التقارير" %}</a>
-                <a href="#">{% trans "الإعدادات" %}</a>
-                <div class="language-switcher">
-                    <form action="{% url 'set_language' %}" method="post">
-                        {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.path }}">
-                        <select name="language" onchange="this.form.submit()">
-                            <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>العربية</option>
-                            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- محتوى الصفحة الرئيسية -->
-    <main class="container">
-        <!-- عناوين الصفحة -->
-        <header class="page-header">
-            <h1>{% trans "قائمة المباني المسجلة" %}</h1>
-            <p class="subtitle">{% trans "إدارة جميع المباني المتاحة للتأجير في سلطنة عُمان" %}</p>
-            <a href="{% url 'admin:buildings_building_add' %}" class="btn btn-primary">
-                <i class="icon-plus"></i> {% trans "إضافة مبنى جديد" %}
+            <a href="{% url 'admin:buildings_building_change' building.id %}" class="btn btn-sm btn-edit">
+              <i class="icon-edit"></i>
             </a>
-        </header>
-
-        <!-- فلترة البحث -->
-        <section class="search-filter">
-            <form method="get" class="filter-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="governorate">{% trans "المحافظة" %}</label>
-                        <select id="governorate" name="governorate">
-                            <option value="">{% trans "جميع المحافظات" %}</option>
-                            {% for gov in governorates %}
-                            <option value="{{ gov.id }}" {% if selected_governorate == gov.id %}selected{% endif %}>{{ gov.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="building_type">{% trans "نوع المبنى" %}</label>
-                        <select id="building_type" name="building_type">
-                            <option value="">{% trans "جميع الأنواع" %}</option>
-                            <option value="RESIDENTIAL" {% if selected_type == 'RESIDENTIAL' %}selected{% endif %}>{% trans "سكني" %}</option>
-                            <option value="COMMERCIAL" {% if selected_type == 'COMMERCIAL' %}selected{% endif %}>{% trans "تجاري" %}</option>
-                            <option value="MIXED" {% if selected_type == 'MIXED' %}selected{% endif %}>{% trans "مختلط" %}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="search">{% trans "بحث" %}</label>
-                        <input type="text" id="search" name="search" placeholder="{% trans "ابحث باسم المبنى أو العنوان" %}" value="{{ search_query }}">
-                    </div>
-                    <button type="submit" class="btn btn-filter">
-                        <i class="icon-search"></i> {% trans "تصفية" %}
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <!-- جدول المباني -->
-        <section class="buildings-list">
-            {% if buildings %}
-            <div class="responsive-table">
-                <table class="omani-table">
-                    <thead>
-                        <tr>
-                            <th>{% trans "اسم المبنى" %}</th>
-                            <th>{% trans "النوع" %}</th>
-                            <th>{% trans "المحافظة" %}</th>
-                            <th>{% trans "الولاية" %}</th>
-                            <th>{% trans "عدد الطوابق" %}</th>
-                            <th>{% trans "الإجراءات" %}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for building in buildings %}
-                        <tr>
-                            <td>
-                                <strong>{{ building.name }}</strong>
-                                <small class="address">{{ building.address|truncatechars:30 }}</small>
-                            </td>
-                            <td>{{ building.get_building_type_display }}</td>
-                            <td>{{ building.governorate.name }}</td>
-                            <td>{{ building.wilayat.name }}</td>
-                            <td>{{ building.floors.count }}</td>
-                            <td class="actions">
-                                <a href="{% url 'buildings:floor_list' building_id=building.id %}" class="btn btn-sm btn-view" title="{% trans "عرض الطوابق" %}">
-                                    <i class="icon-eye"></i>
-                                </a>
-                                <a href="{% url 'admin:buildings_building_change' building.id %}" class="btn btn-sm btn-edit" title="{% trans "تعديل" %}">
-                                    <i class="icon-edit"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- الترقيم الصفحي -->
-            <div class="pagination">
-                <span class="step-links">
-                    {% if buildings.has_previous %}
-                        <a href="?page=1" class="btn btn-pagination">&laquo; {% trans "الأولى" %}</a>
-                        <a href="?page={{ buildings.previous_page_number }}" class="btn btn-pagination">{% trans "السابقة" %}</a>
-                    {% endif %}
-
-                    <span class="current">
-                        {% trans "صفحة" %} {{ buildings.number }} {% trans "من" %} {{ buildings.paginator.num_pages }}
-                    </span>
-
-                    {% if buildings.has_next %}
-                        <a href="?page={{ buildings.next_page_number }}" class="btn btn-pagination">{% trans "التالية" %}</a>
-                        <a href="?page={{ buildings.paginator.num_pages }}" class="btn btn-pagination">{% trans "الأخيرة" %} &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
-            {% else %}
-            <div class="empty-state">
-                <img src="{% static 'buildings/images/empty-building.svg' %}" alt="{% trans "لا توجد مباني" %}" width="200">
-                <h3>{% trans "لا توجد مباني مسجلة" %}</h3>
-                <p>{% trans "يمكنك البدء بإضافة مبنى جديد بالنقر على زر إضافة مبنى جديد أعلاه" %}</p>
-            </div>
-            {% endif %}
-        </section>
-    </main>
-
-    <!-- الفوتر -->
-    <footer class="omani-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>{% trans "نظام إدارة التأجير" %}</h4>
-                    <p>{% trans "حلول متكاملة لإدارة العقارات في سلطنة عُمان" %}</p>
-                </div>
-                <div class="footer-section">
-                    <h4>{% trans "روابط سريعة" %}</h4>
-                    <ul>
-                        <li><a href="#">{% trans "الصفحة الرئيسية" %}</a></li>
-                        <li><a href="#">{% trans "المباني" %}</a></li>
-                        <li><a href="#">{% trans "العقود" %}</a></li>
-                        <li><a href="#">{% trans "التقارير" %}</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>{% trans "اتصل بنا" %}</h4>
-                    <p><i class="icon-phone"></i> +968 XXXX XXXX</p>
-                    <p><i class="icon-email"></i> info@rental-oman.com</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; {% now "Y" %} {% trans "جميع الحقوق محفوظة لشركة إدارة التأجير - سلطنة عُمان" %}</p>
-                <div class="social-links">
-                    <a href="#"><i class="icon-facebook"></i></a>
-                    <a href="#"><i class="icon-twitter"></i></a>
-                    <a href="#"><i class="icon-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- الأيقونات -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="icon-eye" viewBox="0 0 24 24">
-            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-        </symbol>
-        <symbol id="icon-edit" viewBox="0 0 24 24">
-            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-        </symbol>
-        <symbol id="icon-search" viewBox="0 0 24 24">
-            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-        </symbol>
-        <symbol id="icon-plus" viewBox="0 0 24 24">
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-        </symbol>
-    </svg>
-
-    <!-- JavaScript -->
-    <script src="{% static 'buildings/js/main.js' %}"></script>
-</body>
-</html>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include 'buildings/partials/_pagination.html' %}
+  {% else %}
+  <div class="empty-state">
+    <img src="{% static 'buildings/images/empty-buildings.svg' %}" alt="{% trans 'لا توجد مباني' %}">
+    <h3>{% trans "لا توجد مباني مسجلة" %}</h3>
+    <p>{% trans "يمكنك البدء بإضافة مبني جديد بالنقر على زر إضافة مبني جديد" %}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
