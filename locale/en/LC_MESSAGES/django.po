@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-08 08:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: buildings/apps.py:7
+msgid "إدارة المباني"
+msgstr "Buildings Management"
+
+#: buildings/forms.py:10 buildings/models.py:120
+msgid "الطابق"
+msgstr "Floor"
+
+#: buildings/forms.py:11 buildings/models.py:124
+msgid "رقم الوحدة"
+msgstr "Unit Number"
+
+#: buildings/forms.py:12 buildings/models.py:129
+msgid "نوع الوحدة"
+msgstr "Unit Type"
+
+#: buildings/forms.py:13 buildings/models.py:134
+msgid "المساحة (م2)"
+msgstr "Area (m²)"
+
+#: buildings/forms.py:14 buildings/models.py:138
+msgid "متاحة للتأجير"
+msgstr "Available for Rent"
+
+#: buildings/models.py:7 buildings/models.py:25 buildings/models.py:62
+msgid "المحافظة"
+msgstr "Governorate"
+
+#: buildings/models.py:11 buildings/models.py:33
+msgid "الكود"
+msgstr "Code"
+
+#: buildings/models.py:15
+msgid "محافظة"
+msgstr "Governorate"
+
+#: buildings/models.py:16
+msgid "محافظات"
+msgstr "Governorates"
+
+#: buildings/models.py:29 buildings/models.py:68
+msgid "الولاية"
+msgstr "State"
+
+#: buildings/models.py:37
+msgid "ولاية"
+msgstr "State"
+
+#: buildings/models.py:38
+msgid "ولايات"
+msgstr "States"
+
+#: buildings/models.py:45
+msgid "سكني"
+msgstr "Residential"
+
+#: buildings/models.py:46
+msgid "تجاري"
+msgstr "Commercial"
+
+#: buildings/models.py:47
+msgid "مختلط"
+msgstr "Mixed-use"
+
+#: buildings/models.py:51
+msgid "اسم المبنى"
+msgstr "Building Name"
+
+#: buildings/models.py:56
+msgid "نوع المبنى"
+msgstr "Building Type"
+
+#: buildings/models.py:71
+msgid "العنوان التفصيلي"
+msgstr "Detailed Address"
+
+#: buildings/models.py:75
+msgid "تاريخ الإنشاء"
+msgstr "Creation Date"
+
+#: buildings/models.py:79
+msgid "مبنى"
+msgstr "Building"
+
+#: buildings/models.py:80
+msgid "مباني"
+msgstr "Buildings"
+
+#: buildings/models.py:91
+msgid "المبنى"
+msgstr "The Building"
+
+#: buildings/models.py:94
+msgid "رقم الطابق"
+msgstr "Floor Number"
+
+#: buildings/models.py:97
+msgid "وصف الطابق"
+msgstr "Floor Description"
+
+#: buildings/models.py:101
+msgid "طابق"
+msgstr "Floor"
+
+#: buildings/models.py:102
+msgid "طوابق"
+msgstr "Floors"
+
+#: buildings/models.py:111
+msgid "شقة"
+msgstr "Apartment"
+
+#: buildings/models.py:112
+msgid "مكتب"
+msgstr "Office"
+
+#: buildings/models.py:113
+msgid "محل"
+msgstr "Shop"
+
+#: buildings/models.py:114
+msgid "فيلا"
+msgstr "Villa"
+
+#: buildings/models.py:142
+msgid "وحدة"
+msgstr "Unit"
+
+#: buildings/models.py:143
+msgid "وحدات"
+msgstr "Units"
+
+#: buildings/templates/buildings/unit_list.html:7
+msgid "وحدات المبني"
+msgstr "Building Units"
+
+#: buildings/templates/buildings/unit_list.html:15
+msgid "وحدات الطابق"
+msgstr "Floor Units"
+
+#: buildings/templates/buildings/unit_list.html:16
+msgid "المبني:"
+msgstr "Building:"
+
+#: buildings/templates/buildings/unit_list.html:24
+msgid "النوغ:"
+msgstr "Type:"
+
+#: buildings/templates/buildings/unit_list.html:27
+msgid "المساحة:"
+msgstr "Area:"
+
+#: buildings/templates/buildings/unit_list.html:27
+msgid "م2"
+msgstr "m²"
+
+#: buildings/templates/buildings/unit_list.html:30
+msgid "الحالة:"
+msgstr "Status:"
+
+#: buildings/templates/buildings/unit_list.html:33
+msgid "متاحة"
+msgstr "Available"
+
+#: buildings/templates/buildings/unit_list.html:35
+msgid "مؤجرة"
+msgstr "Rented"
+
+#: buildings/templates/buildings/unit_list.html:39
+msgid "تفاصيل الوحدة"
+msgstr "Unit Details"
+
+#: buildings/templates/buildings/unit_list.html:42
+msgid "لا توجد وحدات مسجلة لهذا الطابق"
+msgstr "No units registered for this floor"
+
+#: buildings/templates/buildings/unit_list.html:45
+msgid "إضافة وحدة جديدة"
+msgstr "Add New Unit"
+
+#: buildings/urls.py:9
+msgid "<int:pk>/"
+msgstr "<int:pk>/"
+
+#: buildings/urls.py:10
+msgid "<int:building_id>/floors/"
+msgstr "<int:building_id>/floors/"
+
+#: buildings/urls.py:11
+msgid "floors/<int:floor_id>/units/"
+msgstr "floors/<int:floor_id>/units/"
+
+#: buildings/urls.py:12
+msgid "units/<int:unit_id>/"
+msgstr "units/<int:unit_id>/"
+
+#: buildings/urls.py:13
+msgid "units/new/"
+msgstr "units/new/"
+
+#: buildings/urls.py:14
+msgid "units/<int:pk>/edit/"
+msgstr "units/<int:pk>/edit/"
+
+#: buildings/urls.py:15
+msgid "units/<int:pk>/delete/"
+msgstr "units/<int:pk>/delete/"
+
+#: rental_management/urls.py:29
+msgid "admin/"
+msgstr "admin/"

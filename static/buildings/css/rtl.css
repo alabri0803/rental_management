@@ -1,0 +1,11 @@
+body {
+  direction: rtl;
+  text-align: right;
+}
+.container {
+  margin-right: 28px;
+  margin-left: 0;
+}
+.btn {
+  float: left;
+}

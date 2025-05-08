@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-08 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: buildings/apps.py:7
+msgid "إدارة المباني"
+msgstr ""
+
+#: buildings/forms.py:10 buildings/models.py:120
+msgid "الطابق"
+msgstr ""
+
+#: buildings/forms.py:11 buildings/models.py:124
+msgid "رقم الوحدة"
+msgstr ""
+
+#: buildings/forms.py:12 buildings/models.py:129
+msgid "نوع الوحدة"
+msgstr ""
+
+#: buildings/forms.py:13 buildings/models.py:134
+msgid "المساحة (م2)"
+msgstr ""
+
+#: buildings/forms.py:14 buildings/models.py:138
+msgid "متاحة للتأجير"
+msgstr ""
+
+#: buildings/models.py:7 buildings/models.py:25 buildings/models.py:62
+msgid "المحافظة"
+msgstr ""
+
+#: buildings/models.py:11 buildings/models.py:33
+msgid "الكود"
+msgstr ""
+
+#: buildings/models.py:15
+msgid "محافظة"
+msgstr ""
+
+#: buildings/models.py:16
+msgid "محافظات"
+msgstr ""
+
+#: buildings/models.py:29 buildings/models.py:68
+msgid "الولاية"
+msgstr ""
+
+#: buildings/models.py:37
+msgid "ولاية"
+msgstr ""
+
+#: buildings/models.py:38
+msgid "ولايات"
+msgstr ""
+
+#: buildings/models.py:45
+msgid "سكني"
+msgstr ""
+
+#: buildings/models.py:46
+msgid "تجاري"
+msgstr ""
+
+#: buildings/models.py:47
+msgid "مختلط"
+msgstr ""
+
+#: buildings/models.py:51
+msgid "اسم المبنى"
+msgstr ""
+
+#: buildings/models.py:56
+msgid "نوع المبنى"
+msgstr ""
+
+#: buildings/models.py:71
+msgid "العنوان التفصيلي"
+msgstr ""
+
+#: buildings/models.py:75
+msgid "تاريخ الإنشاء"
+msgstr ""
+
+#: buildings/models.py:79
+msgid "مبنى"
+msgstr ""
+
+#: buildings/models.py:80
+msgid "مباني"
+msgstr ""
+
+#: buildings/models.py:91
+msgid "المبنى"
+msgstr ""
+
+#: buildings/models.py:94
+msgid "رقم الطابق"
+msgstr ""
+
+#: buildings/models.py:97
+msgid "وصف الطابق"
+msgstr ""
+
+#: buildings/models.py:101
+msgid "طابق"
+msgstr ""
+
+#: buildings/models.py:102
+msgid "طوابق"
+msgstr ""
+
+#: buildings/models.py:111
+msgid "شقة"
+msgstr ""
+
+#: buildings/models.py:112
+msgid "مكتب"
+msgstr ""
+
+#: buildings/models.py:113
+msgid "محل"
+msgstr ""
+
+#: buildings/models.py:114
+msgid "فيلا"
+msgstr ""
+
+#: buildings/models.py:142
+msgid "وحدة"
+msgstr ""
+
+#: buildings/models.py:143
+msgid "وحدات"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:7
+msgid "وحدات المبني"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:15
+msgid "وحدات الطابق"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:16
+msgid "المبني:"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:24
+msgid "النوغ:"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:27
+msgid "المساحة:"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:27
+msgid "م2"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:30
+msgid "الحالة:"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:33
+msgid "متاحة"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:35
+msgid "مؤجرة"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:39
+msgid "تفاصيل الوحدة"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:42
+msgid "لا توجد وحدات مسجلة لهذا الطابق"
+msgstr ""
+
+#: buildings/templates/buildings/unit_list.html:45
+msgid "إضافة وحدة جديدة"
+msgstr ""
+
+#: buildings/urls.py:9
+msgid "<int:pk>/"
+msgstr ""
+
+#: buildings/urls.py:10
+msgid "<int:building_id>/floors/"
+msgstr ""
+
+#: buildings/urls.py:11
+msgid "floors/<int:floor_id>/units/"
+msgstr ""
+
+#: buildings/urls.py:12
+msgid "units/<int:unit_id>/"
+msgstr ""
+
+#: buildings/urls.py:13
+msgid "units/new/"
+msgstr ""
+
+#: buildings/urls.py:14
+msgid "units/<int:pk>/edit/"
+msgstr ""
+
+#: buildings/urls.py:15
+msgid "units/<int:pk>/delete/"
+msgstr ""
+
+#: rental_management/urls.py:29
+msgid "admin/"
+msgstr ""

@@ -1,0 +1,76 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}" dir="{% if USE_RTL %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "طوابق المبنى" %} - {{ building.name }}</title>
+    <link rel="stylesheet" href="{% static 'buildings/css/style.css' %}">
+    {% if USE_RTL %}
+    <link rel="stylesheet" href="{% static 'buildings/css/rtl.css' %}">
+    {% endif %}
+</head>
+<body>
+    <header class="omani-header">
+        <h1>{% trans "طوابق المبنى" %}: {{ building.name }}</h1>
+        <p class="location">
+            <span>{% trans "المحافظة" %}: {{ building.governorate.name }}</span>
+            <span>{% trans "الولاية" %}: {{ building.wilayat.name }}</span>
+        </p>
+    </header>
+
+    <div class="container">
+        <div class="building-info">
+            <h2>{% trans "معلومات المبنى" %}</h2>
+            <p><strong>{% trans "نوع المبنى" %}:</strong> {{ building.get_building_type_display }}</p>
+            <p><strong>{% trans "العنوان" %}:</strong> {{ building.address }}</p>
+        </div>
+
+        <div class="floors-section">
+            <h2>{% trans "قائمة الطوابق" %}</h2>
+
+            {% if floors %}
+            <table class="omani-table">
+                <thead>
+                    <tr>
+                        <th>{% trans "رقم الطابق" %}</th>
+                        <th>{% trans "عدد الوحدات" %}</th>
+                        <th>{% trans "الوصف" %}</th>
+                        <th>{% trans "الإجراءات" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for floor in floors %}
+                    <tr>
+                        <td>{{ floor.number }}</td>
+                        <td>{{ floor.units.count }}</td>
+                        <td>{{ floor.description|default:_("لا يوجد وصف") }}</td>
+                        <td>
+                            <a href="{% url 'buildings:unit_list' floor_id=floor.id %}" class="btn btn-view">
+                                {% trans "عرض الوحدات" %}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="alert alert-info">
+                {% trans "لا توجد طوابق مسجلة لهذا المبنى" %}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'buildings:building_list' %}" class="btn btn-back">
+                {% trans "العودة إلى قائمة المباني" %}
+            </a>
+        </div>
+    </div>
+
+    <footer class="omani-footer">
+        <p>{% trans "جميع الحقوق محفوظة لنظام إدارة التأجير - سلطنة عُمان" %} &copy; {{ year }}</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}" dir="{% if USE_RTL %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "تفاصيل الوحدة" %} - {{ unit.unit_number }}</title>
+    <link rel="stylesheet" href="{% static 'buildings/css/style.css' %}">
+    {% if USE_RTL %}
+    <link rel="stylesheet" href="{% static 'buildings/css/rtl.css' %}">
+    {% endif %}
+</head>
+<body>
+    <div class="container">
+        <div class="unit-header">
+            <h1>{% trans "تفاصيل الوحدة" %}: {{ unit.unit_number }}</h1>
+            <p class="location">
+                <span>{% trans "المبنى" %}: {{ unit.floor.building.name }}</span>
+                <span>{% trans "الطابق" %}: {{ unit.floor.number }}</span>
+            </p>
+        </div>
+
+        <div class="unit-details">
+            <div class="detail-card">
+                <h3>{% trans "المعلومات الأساسية" %}</h3>
+                <p><strong>{% trans "نوع الوحدة" %}:</strong> {{ unit.get_unit_type_display }}</p>
+                <p><strong>{% trans "المساحة" %}:</strong> {{ unit.area }} {% trans "متر مربع" %}</p>
+                <p><strong>{% trans "الحالة" %}:</strong> 
+                    <span class="status-{% if unit.is_available %}available{% else %}rented{% endif %}">
+                        {% if unit.is_available %}{% trans "متاحة للتأجير" %}{% else %}{% trans "مؤجرة" %}{% endif %}
+                    </span>
+                </p>
+            </div>
+
+            <div class="detail-card">
+                <h3>{% trans "الموقع" %}</h3>
+                <p><strong>{% trans "المحافظة" %}:</strong> {{ unit.floor.building.governorate.name }}</p>
+                <p><strong>{% trans "الولاية" %}:</strong> {{ unit.floor.building.wilayat.name }}</p>
+                <p><strong>{% trans "العنوان التفصيلي" %}:</strong> {{ unit.floor.building.address }}</p>
+            </div>
+        </div>
+
+        <div class="unit-actions">
+            <a href="{% url 'buildings:unit_update' pk=unit.pk %}" class="btn btn-edit">
+                {% trans "تعديل الوحدة" %}
+            </a>
+            <a href="{% url 'buildings:unit_list' floor_id=unit.floor.id %}" class="btn btn-back">
+                {% trans "العودة إلى قائمة الوحدات" %}
+            </a>
+            <form method="post" action="{% url 'buildings:unit_delete' pk=unit.pk %}" class="delete-form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-delete" onclick="return confirm('{% trans "هل أنت متأكد من حذف هذه الوحدة؟" %}')">
+                    {% trans "حذف الوحدة" %}
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
