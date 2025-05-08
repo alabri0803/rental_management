@@ -9,7 +9,8 @@ class CustomAdminSite(admin.AdminSite):
   site_title = _("إدارة العقارات")
   index_title = _("مرحبا بكم في الإدارة")
 
-@admin.register(Governorate, site=CustomAdminSite())
+custom_admin_site = CustomAdminSite(name='custom_admin')
+
 class GovernorateAdmin(ImportExportModelAdmin):
   list_display = ('name', 'code', 'is_active')
   list_editable = ('is_active',)
@@ -85,3 +86,4 @@ class UnitAdmin(ImportExportModelAdmin):
       'fields': ('features',)
     }),
   )
+custom_admin_site.register(Governorate, GovernorateAdmin)
