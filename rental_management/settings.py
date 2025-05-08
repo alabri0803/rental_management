@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'buildings',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -61,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -103,7 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'ar'
-
+LANGUAGES = [
+    ('ar', 'العربية'),
+    ('en', 'English')
+]
 TIME_ZONE = 'Asia/Muscat'
 
 USE_I18N = True
@@ -119,6 +125,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
+USE_RTL = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -137,3 +147,7 @@ OMAN_SPECIFIC = {
         'CONTRACT_TEMPLATES': 'نماذج عقود عمانية',
     }
 }
+DATE_FORMAT = 'd/m/Y'
+USE_THOUSAND_SEPARATOR = True
+THOUSAND_SEPARATOR = ','
+DECIMAL_SEPARATOR = '.'

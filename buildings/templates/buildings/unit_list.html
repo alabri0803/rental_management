@@ -1,0 +1,48 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}" dir="{% if USE_RTL %}rtl{% else %}ltr{% endif %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% trans "وحدات المبني" %}</title>
+  <link rel="stylesheet" href="{% static 'buildings/css/style.css' %}">
+  {% if USE_RTL %}
+  <link rel="stylesheet" href="{% static 'buildings/css/rtl.css' %}">
+  {% endif %}
+</head>
+<body>
+  <div class="container">
+    <h1>{% trans "وحدات الطابق" %} {{ floor.name }}</h1>
+    <p>{% trans "المبني:" %} {{ floor.building.name }}</p>
+    <div class="units-list">
+      {% for unit in units %}
+      <div class="unit-card">
+        <h3>
+          {{ unit.unit_number }}
+        </h3>
+        <p>
+          {% trans "النوغ:" %} {{ unit.get_unit_type_display }}
+        </p>
+        <p>
+          {% trans "المساحة:" %} {{ unit.area }} {% trans "م2" %}
+        </p>
+        <p>
+          {% trans "الحالة:" %}
+          <span class="{% if unit.is_available %}available{% else %}rented{% endif %}">
+            {% if unit.is_available %}
+            {% trans "متاحة" %}
+            {% else %}
+            {% trans "مؤجرة" %}
+            {% endif %}
+          </span>
+        </p>
+        <a href="{% url 'buildings:unit_detail' unit.pk %}" class="btn">{% trans "تفاصيل الوحدة" %}</a>
+      </div>
+      {% empty %}
+      <p>{% trans "لا توجد وحدات مسجلة لهذا الطابق" %}</p>
+      {% endfor %}
+    </div>
+    <a href="{% url 'buildings:unit_create' floor.pk %}" class="btn btn-primary">{% trans "إضافة وحدة جديدة" %}</a>
+  </div>
+</body>
+</html>
