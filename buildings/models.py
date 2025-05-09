@@ -9,7 +9,7 @@ class Governorate(models.Model):
     verbose_name=_("المحافظة")
   )
   code = models.CharField(
-    max_length=2,
+    max_length=3,
     unique=True,
     verbose_name=_("الكود")
   )
@@ -38,7 +38,7 @@ class Wilayat(models.Model):
     verbose_name=_("الولاية")
   )
   code = models.CharField(
-    max_length=2,
+    max_length=3,
     unique=True,
     verbose_name=_("الكود")
   )
