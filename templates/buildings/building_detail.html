@@ -1,0 +1,90 @@
+{% extends 'buildings/base.html' %}
+{% load i18n static %}
+{% block content %}
+<div class="building-detail">
+  <div class="detail-header">
+    <h1>{{ building.name }}</h1>
+    <div class="header-actions">
+      <a href="{% url 'admin:buildings_building_change' building.id %}" class="btn btn-edit">
+        <i class="fas fa-edit"></i>
+        {% trans 'تعديل' %}
+      </a>
+    </div>
+  </div>
+  <div class="detail-grid">
+    <div class="detail-card">
+      <h3>
+        {% trans "المعلومات الأساسية" %}
+      </h3>
+      <p>
+        <strong>{% trans "نوع المبني" %}:</strong> {{ building.get_building_type_display }}
+      </p>
+      <p>
+        <strong>{% trans "المحافظة" %}:</strong> {{ building.governorate.name }}
+      </p>
+      <p>
+        <strong>{% trans "الولاية" %}:</strong> {{ building.wilayat.name }}
+      </p>
+    </div>
+    <div class="detail-card">
+      <h3>
+        {% trans "معلومات المالك" %}
+      </h3>
+      <p>
+        <strong>{% trans "اسم المالك" %}:</strong> {{ building.owner_name|default:_("غير محدد") }}
+      </p>
+      <p>
+        <strong>{% trans "رقم الهاتف" %}:</strong> {{ building.owner_phone|default:_("غير محدد") }}
+      </p>
+    </div>
+    <div class="detail-card address-card">
+      <h3>
+        {% trans "العنوان" %}
+      </h3>
+      <p>
+        {{ building.address }}
+      </p>
+      {% if building.location_link %}
+      <a href="{{ building.location_link }}" target="_blank" class="btn btn-location">
+        <i class="icon-map"></i>
+        {% trans "عرض على الخريطة" %}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="floors-section">
+    <h2>
+      {% trans "طوابق المبني" %}
+    </h2>
+    <a href="{% url 'buildings:floor_list' building.id %}" class="btn btn-view-all">
+      {% trans "عرض جميع الطوابق" %}
+      ({{ building.floors.count }})
+    </a>
+    <div class="floors-grid">
+      {% for floor in building.floors.all|slice:":4" %}
+      <div class="floor-card">
+        <h3>
+          {% trans "طابق" %} {{ floor.number }}
+        </h3>
+        <p class="unit-count">
+          {{ floor.units.count }} {% trans "وحدة" %}
+        </p>
+        <a href="{% url 'buildings:unit_list' floor.id %}" class="btn btn-view">
+          {% trans "عرض الوحدات" %}
+        </a>
+      </div>
+      {% empty %}
+      <div class="empty-state">
+        <p>
+          {% trans "لا توجد طوابق مسجلة لهذا المبني" %}
+        </p>
+        <a href="{% url 'admin:buildings_floor_add' %}" class="btn btn-primary">
+          <i class="fas fa-plus"></i>
+          {% trans "إضافة طابق" %}
+        </a>
+    </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
