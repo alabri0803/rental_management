@@ -105,7 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ar'
 LANGUAGES = [
-    ('ar', _('Arabic'))
+    ('ar', _('Arabic')),
+    ('en', _('English')),
 ]
 TIME_ZONE = 'Asia/Muscat'
 
@@ -124,5 +125,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOCALE_PATHS = [
-    BASE_DIR / 'locale'
+    os.path.join(BASE_DIR, 'locale')
 ]
