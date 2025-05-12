@@ -1,0 +1,23 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "قائمة الوحدات" %}</title>
+</head>
+<body>
+  <h1>
+    {% trans "الوحدات المتوفرة" %}
+  </h1>
+  <ul>
+    {% for unit in units %}
+      <li>
+        <a href="{% url 'buildings:unit_detail' unit.pk %}">
+        {{ unit }} - {{ unit.get_unit_type_display }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'buildings:unit_form' %}">{% trans "إضافة وحدة جديدة" %}</a>
+</body>
+</html>

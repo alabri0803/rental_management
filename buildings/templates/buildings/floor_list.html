@@ -1,0 +1,21 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "قائمة المباني" %}</title>
+  <link rel="stylesheet" href="{% static 'buildings/css/style.css' %}">
+</head>
+<body>
+  <h1>
+    {% trans "قائمة المباني" %}
+  </h1>
+  <ul>
+    {% for building in buildings %}
+      <li>
+          {{ building.name }} - {{ building.get_building_type_display }}
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
