@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+  تفاصيل العقد: {{ contract.contract_number }}
+</h2>
+<p>
+  المستأجر: {{ contract.tenant }}
+</p>
+<p>
+  الوحدة: {{ contract.unit }}
+</p>
+<p>
+  الإيجار: {{ contract.rent_amount }}
+</p>
+<p>
+  من تاريخ: {{ contract.start_date }} إلى: {{ contract.end_date }}
+</p>
+<a href="{% url 'contract_update' contract.pk %}">
+  تعديل
+</a>
+{% endblock %}

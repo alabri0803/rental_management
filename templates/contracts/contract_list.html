@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+  قائمة العقود
+</h2>
+<a href="{% url 'contract_create' %}">+ إضافة عقد</a>
+<ul>
+  {% for contract in contracts %}
+  <li>
+    <a href="{% url 'contract_detail' contract.pk %}">{{ contract.contract_number }} - {{ contract.tenant }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
