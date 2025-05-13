@@ -4,6 +4,7 @@ from .forms import ContractForm
 from django.utils.translation import gettext_lazy as _
 from django.http import HttpResponse
 from django.template.loader import get_template
+from django.contrib.auth.decorators import login_required, permission_required
 
 def contract_pdf(request, pk):
   contract = get_object_or_404(Contract, pk=pk)
@@ -26,7 +27,10 @@ def contract_pdf(request, pk):
     pdf = pdfkit.from_string(html, False, options=options)
     response.write(pdf)
   return response
-      
+
+
+@login_required
+@permission_required('contracts.view_contract')
 def contract_list(request):
   contracts = Contract.objects.all()
   return render(request, 'contracts/contract_list.html', {'contracts': contracts})
