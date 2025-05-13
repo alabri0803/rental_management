@@ -10,3 +10,19 @@ run = ["sh", "-c", "python manage.py runserver 0.0.0.0:30000"]
 [[ports]]
 localPort = 30000
 externalPort = 80
+
+[workflows]
+runButton = "Django Development"
+
+[[workflows.workflow]]
+name = "Django Development"
+author = 42272703
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python manage.py migrate"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python manage.py runserver 0.0.0.0:8000"
