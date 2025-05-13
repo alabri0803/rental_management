@@ -4,7 +4,6 @@ from .forms import ContractForm
 from django.utils.translation import gettext_lazy as _
 from django.http import HttpResponse
 from django.template.loader import get_template
-from xhtml2pdf import pisa
 
 def contract_pdf(request, pk):
   contract = get_object_or_404(Contract, pk=pk)
@@ -13,7 +12,19 @@ def contract_pdf(request, pk):
   html = template.render(context)
   response = HttpResponse(content_type='application/pdf')
   response['Content-Disposition'] = f'attachment; filename="contract_{contract.id}.pdf"'
-  pisa.CreatePDF(html, dest=response)
+  try:
+     from xhtml2pdf import pisa
+     pisa.CreatePDF(html, dest=response)
+  except ImportError:
+    from io import BytesIO
+    from django.core.files.base import ContentFile
+    import pdfkit
+    options = {
+        'encoding': 'UTF-8',
+        'quiet': ''
+    }
+    pdf = pdfkit.from_string(html, False, options=options)
+    response.write(pdf)
   return response
       
 def contract_list(request):
