@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-12 17:10+0000\n"
+"POT-Creation-Date: 2025-05-13 09:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,50 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-#: buildings/models.py:5
-msgid "فيلا"
-msgstr ""
-
-#: buildings/models.py:6
-msgid "بيت"
-msgstr ""
-
-#: buildings/models.py:7
-msgid "عمارة"
-msgstr ""
-
-#: buildings/models.py:8
-msgid "تجاري"
-msgstr ""
-
-#: buildings/models.py:9
-msgid "سكني"
-msgstr ""
-
-#: buildings/models.py:10
-msgid "تجاري وسكني"
-msgstr ""
-
-#: buildings/models.py:13
-msgid "محل تجاري"
-msgstr ""
-
-#: buildings/models.py:14
-msgid "مكتب"
-msgstr ""
-
-#: buildings/models.py:15
-msgid "شقة"
-msgstr ""
-
-#: buildings/models.py:16
-msgid "مطعم"
-msgstr ""
-
-#: rental_management/settings.py:108
+#: rental_management/settings.py:114
 msgid "Arabic"
 msgstr ""
 
-#: rental_management/settings.py:109
+#: rental_management/settings.py:115
 msgid "English"
 msgstr ""
