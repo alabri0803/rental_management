@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-13 09:03+0000\n"
+"POT-Creation-Date: 2025-05-13 13:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,231 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-#: rental_management/settings.py:114
-msgid "Arabic"
+
+#: buildings/models.py:7
+msgid "اسم الوحدة"
+msgstr ""
+
+#: buildings/models.py:10
+msgid "الطابق"
+msgstr ""
+
+#: buildings/models.py:14
+msgid "اسم المبنى"
+msgstr ""
+
+#: buildings/models.py:18
+msgid "مشغولة؟"
+msgstr ""
+
+#: buildings/models.py:22
+msgid "وحدة"
+msgstr ""
+
+#: buildings/models.py:23
+msgid "الوحدات"
+msgstr ""
+
+#: contracts/forms.py:14 contracts/models.py:45
+msgid "اسم المؤجر"
+msgstr ""
+
+#: contracts/forms.py:15 contracts/models.py:76
+msgid "رقم العقد"
+msgstr ""
+
+#: contracts/models.py:7
+msgid "اتفاقة/شراكة"
+msgstr ""
+
+#: contracts/models.py:8
+msgid "سجل تجاري"
+msgstr ""
+
+#: contracts/models.py:9
+msgid "شخص"
+msgstr ""
+
+#: contracts/models.py:10
+msgid "سفارة"
+msgstr ""
+
+#: contracts/models.py:11
+msgid "شركة أجنبية"
+msgstr ""
+
+#: contracts/models.py:12
+msgid "جهة حكومة"
+msgstr ""
+
+#: contracts/models.py:13
+msgid "ورثة"
+msgstr ""
+
+#: contracts/models.py:14
+msgid "سجل مهني"
+msgstr ""
+
+#: contracts/models.py:17
+msgid "مستثمر"
+msgstr ""
+
+#: contracts/models.py:18
+msgid "منتفع"
+msgstr ""
+
+#: contracts/models.py:21
+msgid "استثمار لإعادة التأجير"
+msgstr ""
+
+#: contracts/models.py:22 contracts/models.py:36
+msgid "تجاري"
+msgstr ""
+
+#: contracts/models.py:23 contracts/models.py:39
+msgid "سكني"
+msgstr ""
+
+#: contracts/models.py:24 contracts/models.py:38
+msgid "صناعي"
+msgstr ""
+
+#: contracts/models.py:27
+msgid "سكن قوى عاملة - عائلي"
+msgstr ""
+
+#: contracts/models.py:28
+msgid "سكن قوى عاملة - عزابي"
+msgstr ""
+
+#: contracts/models.py:29
+msgid "سكن عائلي"
+msgstr ""
+
+#: contracts/models.py:30
+msgid "سكن عزابي"
+msgstr ""
+
+#: contracts/models.py:31
+msgid "سكن طلاب"
+msgstr ""
+
+#: contracts/models.py:32
+msgid "سكن طالبات"
+msgstr ""
+
+#: contracts/models.py:35
+msgid "زراعي"
+msgstr ""
+
+#: contracts/models.py:37
+msgid "حكومي"
+msgstr ""
+
+#: contracts/models.py:40
+msgid "سكني تجاري"
+msgstr ""
+
+#: contracts/models.py:50
+msgid "نوع المؤجر"
+msgstr ""
+
+#: contracts/models.py:55
+msgid "علاقة المؤجر"
+msgstr ""
+
+#: contracts/models.py:59
+msgid "هل المؤجر هو مالك المبنى؟"
+msgstr ""
+
+#: contracts/models.py:65
+msgid "المستأجر"
+msgstr ""
+
+#: contracts/models.py:70
+msgid "الوحدة"
+msgstr ""
+
+#: contracts/models.py:79
+msgid "تاريخ البداية"
+msgstr ""
+
+#: contracts/models.py:82
+msgid "تاريخ النهاية"
+msgstr ""
+
+#: contracts/models.py:88
+msgid "الغرض من العقد"
+msgstr ""
+
+#: contracts/models.py:93
+msgid "نوع السكن"
+msgstr ""
+
+#: contracts/models.py:98
+msgid "الغرض من استعمال الأرض"
+msgstr ""
+
+#: contracts/models.py:104
+msgid "قيمة الإيجار"
+msgstr ""
+
+#: contracts/models.py:109
+msgid "ملاحظات"
+msgstr ""
+
+#: contracts/models.py:114 tenants/models.py:31
+msgid "تاريخ الإنشاء"
+msgstr ""
+
+#: contracts/models.py:118
+msgid "تاريخ التحديث"
+msgstr ""
+
+#: contracts/models.py:122
+msgid "عقد"
+msgstr ""
+
+#: contracts/models.py:123
+msgid "العقود"
 msgstr ""
 
 #: rental_management/settings.py:115
+msgid "Arabic"
+msgstr ""
+
+#: rental_management/settings.py:116
 msgid "English"
+msgstr ""
+
+#: tenants/models.py:7
+msgid "الاسم الكامل"
+msgstr ""
+
+#: tenants/models.py:11
+msgid "الرقم المدني / الهوية"
+msgstr ""
+
+#: tenants/models.py:15
+msgid "رقم الهاتف"
+msgstr ""
+
+#: tenants/models.py:21
+msgid "البريد الالكتروني"
+msgstr ""
+
+#: tenants/models.py:26
+msgid "العنوان"
+msgstr ""
+
+#: tenants/models.py:35
+msgid "آخر تعديل"
+msgstr ""
+
+#: tenants/models.py:39
+msgid "مستأجر"
+msgstr ""
+
+#: tenants/models.py:40
+msgid "المستأجرون"
 msgstr ""
