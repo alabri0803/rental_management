@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+  قائمة المستأجرين
+</h2>
+<a href="{% url 'tenant_create' %}">+ اضافة مستأجر</a>
+<ul>
+  {% for tenant in tenants %}
+  <li>
+    <a href="{% url 'tenant_detail' tenant.pk %}">{{ tenant.full_name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+  {{ tenant.full_name }}
+</h2>
+<p>
+  الرقم المدني: {{ tenant.national_id }}
+</p>
+<p>
+  الهاتف: {{ tenant.phone }}
+</p>
+<p>
+  البريد: {{ tenant.email }}
+</p>
+<a href="{% url 'tenant_update' tenant.pk %}">
+  تعديل
+</a>
+{% endblock %}
