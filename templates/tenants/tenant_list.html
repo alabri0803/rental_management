@@ -3,12 +3,25 @@
 <h2>
   قائمة المستأجرين
 </h2>
-<a href="{% url 'tenant_create' %}">+ اضافة مستأجر</a>
-<ul>
-  {% for tenant in tenants %}
-  <li>
-    <a href="{% url 'tenant_detail' tenant.pk %}">{{ tenant.full_name }}</a>
-  </li>
-  {% endfor %}
-</ul>
+<a href="{% url 'tenant_create' %}" class="btn btn-primary mb-3">+ اضافة مستأجر</a>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>الاسم</th>
+      <th>الهاتف</th>
+      <th>الحالة</th>
+      <th>عرض</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tenant in tenants %}
+    <tr>
+      <td>{{ tenant.full_name }}</td>
+      <td>{{ tenant.phone }}</td>
+      <td>{{ tenant.get_status_display }}</td>
+      <td><a href="{% url 'tenant_detail' tenant.pk %}" class="btn btn-sm btn-outline-secondary">عرض</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
