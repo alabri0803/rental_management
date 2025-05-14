@@ -3,5 +3,7 @@ from .models import Tenant
 
 @admin.register(Tenant)
 class TenantAdmin(admin.ModelAdmin):
-  list_display = ('full_name', 'phone', 'email')
+  list_display = ('full_name', 'national_id', 'phone', 'status')
+  list_filter = ('status',)
   search_fields = ('full_name', 'national_id', 'phone')
+  ordering = ['-id',]

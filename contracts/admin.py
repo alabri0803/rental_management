@@ -3,6 +3,8 @@ from .models import Contract
 
 @admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):
-  list_display = ('contract_number', 'tenant', 'unit', 'start_date', 'end_date', 'rent_amount')
-  list_filter = ('purpose_of_contract', 'land_usage_puropose', 'residential_usage')
-  search_fields = ('contract_number', 'lessor_name', 'tenant__full_name')
+  list_display = ('contract_number', 'tenant', 'unit', 'start_date', 'end_date', 'status')
+  list_filter = ('status', 'start_date')
+  search_fields = ('contract_number', 'tenant__full_name', 'unit__name')
+  date_hierarchy = 'start_date'
+  ordering = ['-start_date']
