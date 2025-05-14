@@ -1,13 +1,39 @@
 {% extends "base.html" %}
+{% block title %}لوحة التحكم{% endblock %}
 {% block content %}
-<h1>لوحة التحكم</h1>
-<p>
-  عدد العقود: {{ contracts_count }}
-</p>
-<p>
-  عدد المستأجرين: {{ tenants_count }}
-</p>
-<p>
-  إجمالي المدفوع: {{ total_paid }}
-</p>
+<h2>لوحة التحكم</h2>
+<div class="row text-center">
+  <div class="col-md-3">
+    <div class="card bg-light border-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">العقود</h5>
+        <p>{{ contract_count }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card bg-light border-danger mb-3">
+      <div class="card-body">
+        <h5 class="card-title">المستأجرين</h5>
+        <p>{{ tenant_count }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card bg-light border-warning mb-3">
+      <div class="card-body">
+        <h5 class="card-title">الوحدات</h5>
+        <p>{{ units_total }} ({{ units_occupied }} مشغولة)</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card bg-light border-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">الإيرادات</h5>
+        <p>{{ total_paid }} ر.ع</p>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
