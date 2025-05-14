@@ -1,6 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+class TenantStatus(models.TextChoices):
+  ACTIVE = 'AC', _('نشط')
+  LEFT = 'LF', _('منسحب')
+  LATE = 'LT', _('متأخر')
+
 class Tenant(models.Model):
   full_name = models.CharField(
     max_length=255, 
@@ -25,19 +30,22 @@ class Tenant(models.Model):
     null=True,
     verbose_name=_("العنوان")
   )
-
-  created_at = models.DateTimeField(
-    auto_now_add=True,
-    verbose_name=_("تاريخ الإنشاء")
+  photo_id = models.ImageField(
+    upload_to='tenants_ids/',
+    blank=True,
+    null=True,
+    verbose_name=_("صورة الهوية")
   )
-  updated_at = models.DateTimeField(
-    auto_now=True,
-    verbose_name=_("آخر تعديل")
+  status = models.CharField(
+    max_length=2,
+    choices=TenantStatus.choices,
+    default=TenantStatus.ACTIVE,
+    verbose_name=_("الحالة")
   )
-
-  class Meta:
-    verbose_name = _("مستأجر")
-    verbose_name_plural = _("المستأجرون")
 
   def __str__(self):
     return self.full_name
+    
+  class Meta:
+    verbose_name = _("مستأجر")
+    verbose_name_plural = _("المستأجرون")

@@ -2,6 +2,12 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from contracts.models import Contract
 
+class PaymentMethod(models.TextChoices):
+  CASH = 'CA', _('نقدي')
+  BANK = 'BN', _('تحويل بنكي')
+  CARD = 'CR', _('بطاقة')
+  CHECK = 'CH', _('شيك')
+  
 class Payment(models.Model):
   contract = models.ForeignKey(
     Contract, 
@@ -16,16 +22,21 @@ class Payment(models.Model):
   date = models.DateField(
     verbose_name=_('التاريخ الدفع')
   )
-  notes = models.TextField(
+  method = models.CharField(
+    max_length=2,
+    choices=PaymentMethod.choices,
+    verbose_name=_('طريقة الدفع')
+  )
+  receipt = models.FileField(
+    upload_to='receipts/',
     blank=True,
     null=True,
-    verbose_name=_('ملاحظات')
+    verbose_name=_('إيصال الدفع')
   )
 
-  class Meta:
-    verbose_name = _('دفعة')
-    verbose_name_plural = _('الدفعات')
-    ordering = ['-date']
-
   def __str__(self):
-    return f"{self.contract.contract_number} - {self.amount}"
+    return f"{self.contract.contract_number} - {self.amount} ر.ع"
+
+  class Meta:
+    verbose_name = _("دفعة")
+    verbose_name_plural = _("الدفعات")
