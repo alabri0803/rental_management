@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>
-  {% if form.instance.pk %}تعديل مستأجر{% else %}اضافة مستأجر{% endif %}
+  {% if form.instance.pk %}تعديل{% else %}اضافة{% endif %}
 </h2>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">حفظ</button>
+  <button type="submit" class="btn btn-success">حفظ</button>
 </form>
 {% endblock %}
