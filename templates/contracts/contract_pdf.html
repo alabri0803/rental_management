@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            font-family: "DejaVu Sans", sans-serif;
-            direction: rtl;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "DejaVu Sans";
+      direction: rtl
+    }
+  </style>
 </head>
 <body>
-    <h1>عقد إيجار</h1>
-    <p>
-        الرقم: {{ contract.contract_number }}
-    </p>
-    <p>
-        المؤجر: {{ contract.lessor_name }}
-    </p>
-    <p>
-        المستأجر: {{ contract.tenant }}
-    </p>
-    <p>
-        تاريخ البدء: {{ contract.start_date }}إلى {{ contract.end_date }}
-    </p>
+  <h1>عقد إيجار</h1>
+  <p><strong>رقم العقد:</strong> {{ contract.contract_number }}</p>
+  <p><strong>المؤجر:</strong> {{ contract.tenant.full_name }}</p>
+  <p><strong>الوحدة:</strong> {{ contract.unit }}</p>
+  <p><strong>تاريخ:</strong> من {{ contract.start_date }} إلى {{ contract.end_date }}</p>
 </body>
 </html>
