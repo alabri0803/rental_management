@@ -16,23 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core import views as core_views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls.i18n import i18n_patterns, set_language
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
 
-urlpatterns += i18n_patterns(
-    path('', core_views.dashboard, name='dashboard'),
-    path('contracts/', include('contracts.urls')),
+    path('', include('core.urls')),
     path('tenants/', include('tenants.urls')),
+    path('contracts/', include('contracts.urls')),
     path('payments/', include('payments.urls')),
+    path('buildings/', include('buildings.urls')),
     path('reports/', include('reports.urls')),
     path('api/', include('api.urls')),
-    path('i18n/', include('django.conf.urls.i18n')),
-    path('set-language/', set_language, name='set_language'),
-    prefix_default_language=False,
-)
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

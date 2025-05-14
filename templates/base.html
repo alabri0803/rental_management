@@ -9,14 +9,6 @@
 </head>
 <body class="container py-3">
   <nav class="mb-4">
-    <form action="{% url 'set_language' %}" method="post">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <select name="language" onchange="this.form.submit()">
-            <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>العربية</option>
-            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-        </select>
-    </form>
     <a class="btn btn-sm btn-primary" href="/">{% trans 'الرئيسية' %}</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'contract_list' %}">{% trans 'العقود' %}</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'payment_list' %}">{% trans 'المدفوعات' %}</a>
