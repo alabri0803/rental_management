@@ -23,7 +23,7 @@ from django.conf.urls.i18n import i18n_patterns, set_language
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 urlpatterns += i18n_patterns(
     path('', core_views.dashboard, name='dashboard'),
