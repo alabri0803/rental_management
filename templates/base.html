@@ -9,6 +9,8 @@
 </head>
 <body class="container py-3">
   <nav class="mb-4">
+    <a href="{% url 'set_language' %}?language=ar&next={{ request.path }}">العربية</a>
+    <a href="{% url 'set_language' %}?language=en&next={{ request.path }}">English</a>
     <a class="btn btn-sm btn-primary" href="/">الرئيسية</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'contract_list' %}">العقود</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'payment_list' %}">المدفوعات</a>
