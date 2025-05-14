@@ -17,6 +17,7 @@
     <p><strong>{% trans "مؤثثة؟" %}:</strong>{% if unit.is_furnished %} {% trans "نعم" %}{% else %} {% trans "لا" %}{% endif %}</p>
     {% if unit.coordinates %}
     <p><strong>{% trans "الإحداثيات" %}:</strong> {{ unit.coordinates }}</p>
+    {% endif %}
   </div>
   <div class="card-footer text-end">
     <a href="{% url 'buildings:edit' unit.pk %}" class="btn btn-outline-primary btn-sm">{% trans "تعديل" %}</a>
