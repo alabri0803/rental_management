@@ -38,7 +38,6 @@
   </div>
     <div class="card-footer">
       <button type="submit" class="btn btn-primary">
-        {% if form.instance.pk %}
           {% trans "حفظ" %}
       </button>
       <a href="{% url 'contracts:list' %}" class="btn btn-secondary">
