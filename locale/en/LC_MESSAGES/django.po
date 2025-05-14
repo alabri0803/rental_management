@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-14 12:27+0000\n"
+"POT-Creation-Date: 2025-05-14 14:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr "Unit"
 msgid "الوحدات"
 msgstr "Units"
 
-#: contracts/apps.py:7 contracts/models.py:56
+#: contracts/apps.py:7 contracts/models.py:56 templates/base.html:21
 msgid "العقود"
 msgstr "Contracts"
 
@@ -142,7 +142,7 @@ msgstr "Contract"
 msgid "الأساسيات"
 msgstr "Core"
 
-#: payments/apps.py:7
+#: payments/apps.py:7 templates/base.html:22
 msgid "المدفوعات"
 msgstr "Payments"
 
@@ -198,9 +198,13 @@ msgstr "Arabic"
 msgid "English"
 msgstr "English"
 
-#: reports/apps.py:7
+#: reports/apps.py:7 templates/base.html:23
 msgid "التقارير"
 msgstr "Reports"
+
+#: templates/base.html:20
+msgid "الرئيسية"
+msgstr "Home"
 
 #: tenants/apps.py:7 tenants/models.py:51
 msgid "المستأجرون"

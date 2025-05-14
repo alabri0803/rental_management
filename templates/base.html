@@ -18,9 +18,9 @@
         </select>
     </form>
     <a class="btn btn-sm btn-primary" href="/">{% trans 'الرئيسية' %}</a>
-    <a class="btn btn-sm btn-outline-dark" href="{% url 'contract_list' %}">العقود</a>
-    <a class="btn btn-sm btn-outline-dark" href="{% url 'payment_list' %}">المدفوعات</a>
-    <a class="btn btn-sm btn-outline-dark" href="{% url 'summary_report' %}">التقارير</a>
+    <a class="btn btn-sm btn-outline-dark" href="{% url 'contract_list' %}">{% trans 'العقود' %}</a>
+    <a class="btn btn-sm btn-outline-dark" href="{% url 'payment_list' %}">{% trans 'المدفوعات' %}</a>
+    <a class="btn btn-sm btn-outline-dark" href="{% url 'summary_report' %}">{% trans 'التقارير' %}</a>
   </nav>
   <div class="container">
     {% block content %}
