@@ -9,16 +9,18 @@
 </head>
 <body class="container py-3">
   <nav class="mb-4">
-    <a href="{% url 'set_language' %}?language=ar&next={{ request.path }}">العربية</a>
-    <a href="{% url 'set_language' %}?language=en&next={{ request.path }}">English</a>
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <select name="language" onchange="this.form.submit()">
+            <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>العربية</option>
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+        </select>
+    </form>
     <a class="btn btn-sm btn-primary" href="/">الرئيسية</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'contract_list' %}">العقود</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'payment_list' %}">المدفوعات</a>
     <a class="btn btn-sm btn-outline-dark" href="{% url 'summary_report' %}">التقارير</a>
-    <a href="/i18n/setlang/?language=ar">العربية</a>
-    <a href="/i18n/setlang/?language=en">English</a>
-    <hr>
-    <a href="{% url 'contract_list' %}">العقود</a>
   </nav>
   <div class="container">
     {% block content %}
