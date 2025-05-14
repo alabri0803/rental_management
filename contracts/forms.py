@@ -7,10 +7,12 @@ class ContractForm(forms.ModelForm):
     model = Contract
     fields = '__all__'
     widgets = {
+      'contract_number': forms.TextInput(attrs={'class': 'form-control'}),
+      'tenant': forms.Select(attrs={'class': 'form-select'}),
+      'unit': forms.Select(attrs={'class': 'form-select'}),
       'start_date': forms.DateInput(attrs={'type': 'date'}),
       'end_date': forms.DateInput(attrs={'type': 'date'}),
-    }
-    labels = {
-      'lessor_name': _('اسم المؤجر'),
-      'contract_number': _('رقم العقد'),
+      'rent_amount': forms.NumberInput(attrs={'class': 'form-control'}),
+      'contract_file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+      'status': forms.Select(attrs={'class': 'form-select'}),
     }

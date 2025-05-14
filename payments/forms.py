@@ -6,5 +6,9 @@ class PaymentForm(forms.ModelForm):
     model = Payment
     fields = '__all__'
     widgets = {
-      'date': forms.DateInput(attrs={'type': 'date'}),
+      'contract': forms.Select(attrs={'class': 'form-select'}),
+      'amount': forms.NumberInput(attrs={'class': 'form-control'}),
+      'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+      'method': forms.Select(attrs={'class': 'form-select'}),
+      'receipt': forms.ClearableFileInput(attrs={'class': 'form-control'}),
     }
