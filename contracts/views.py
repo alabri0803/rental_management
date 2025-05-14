@@ -3,10 +3,6 @@ from django.urls import reverse_lazy
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.core.mail import EmailMessage
-from weasyprint import HTML
-from io import BytesIO
-from weasyprint.text.fonts import FontConfiguration
-import tinycss2.color3
 
 from .models import Contract
 from .forms import ContractForm
