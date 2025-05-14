@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.template.loader import get_template
+from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.core.mail import EmailMessage
-from xhtml2pdf import pisa
+from weasyprint import HTML
 from io import BytesIO
+from weasyprint.text.fonts import FontConfiguration
 
 from .models import Contract
 from .forms import ContractForm
@@ -34,11 +35,12 @@ def contract_update(request, pk):
 
 def contract_pdf(request, pk):
   contract = get_object_or_404(Contract, pk=pk)
-  template = get_template('contracts/contract_pdf.html')
-  html = template.render({'contract': contract})
-  response = HttpResponse(content_type='application/pdf')
+  html_string = render_to_string('contracts/contract_pdf.html', {'contract':contract})
+  font_config = FontConfiguration()
+  html = HTML(string=html_string)
+  pdf_file = html.write_pdf(font_config=font_config)
+  response = HttpResponse(pdf_file, content_type='application/pdf')
   response['Content-Disposition'] = f'attachment; filename="contract_{contract.contract_number}.pdf"'
-  pisa.CreatePDF(html, dest=response)
   return response
 
 def send_contract_email(request, pk):
