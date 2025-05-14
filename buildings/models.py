@@ -37,6 +37,7 @@ class Unit(models.Model):
   area = models.DecimalField(
     max_digits=7,
     decimal_places=2,
+    default=0,
     verbose_name=_('المساحة (م2)')
   )
   coordinates = models.CharField(
