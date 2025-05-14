@@ -2,6 +2,7 @@ from django.shortcuts import render
 from contracts.models import Contract
 from tenants.models import Tenant
 from payments.models import Payment
+from buildings.models import Unit
 from django.db.models import Sum
 
 def dashboard(request):
