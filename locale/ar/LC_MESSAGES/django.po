@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-13 13:54+0000\n"
+"POT-Creation-Date: 2025-05-14 12:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,230 +19,230 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+#: buildings/apps.py:7
+msgid "الوحدات العقارية"
+msgstr ""
+
+#: buildings/models.py:5
+msgid "شقة"
+msgstr ""
+
+#: buildings/models.py:6
+msgid "فيلا"
+msgstr ""
+
 #: buildings/models.py:7
-msgid "اسم الوحدة"
+msgid "محل"
+msgstr ""
+
+#: buildings/models.py:8
+msgid "لوحة اعلانية"
+msgstr ""
+
+#: buildings/models.py:9
+msgid "مكتب"
 msgstr ""
 
 #: buildings/models.py:10
-msgid "الطابق"
+msgid "مول"
 msgstr ""
 
-#: buildings/models.py:14
-msgid "اسم المبنى"
+#: buildings/models.py:15
+msgid "اسم الوحدة"
 msgstr ""
 
 #: buildings/models.py:18
-msgid "مشغولة؟"
+msgid "الطابق"
 msgstr ""
 
 #: buildings/models.py:22
+msgid "اسم المبنى"
+msgstr ""
+
+#: buildings/models.py:27
+msgid "نوع الوحدة"
+msgstr ""
+
+#: buildings/models.py:31
+msgid "مشغولة؟"
+msgstr ""
+
+#: buildings/models.py:35
+msgid "مؤثثة؟"
+msgstr ""
+
+#: buildings/models.py:40
+msgid "المساحة (م2)"
+msgstr ""
+
+#: buildings/models.py:46
+msgid "الإحداثيات"
+msgstr ""
+
+#: buildings/models.py:53
 msgid "وحدة"
 msgstr ""
 
-#: buildings/models.py:23
+#: buildings/models.py:54
 msgid "الوحدات"
 msgstr ""
 
-#: contracts/forms.py:14 contracts/models.py:45
-msgid "اسم المؤجر"
-msgstr ""
-
-#: contracts/forms.py:15 contracts/models.py:76
-msgid "رقم العقد"
-msgstr ""
-
-#: contracts/models.py:7
-msgid "اتفاقة/شراكة"
-msgstr ""
-
-#: contracts/models.py:8
-msgid "سجل تجاري"
-msgstr ""
-
-#: contracts/models.py:9
-msgid "شخص"
-msgstr ""
-
-#: contracts/models.py:10
-msgid "سفارة"
-msgstr ""
-
-#: contracts/models.py:11
-msgid "شركة أجنبية"
-msgstr ""
-
-#: contracts/models.py:12
-msgid "جهة حكومة"
-msgstr ""
-
-#: contracts/models.py:13
-msgid "ورثة"
-msgstr ""
-
-#: contracts/models.py:14
-msgid "سجل مهني"
-msgstr ""
-
-#: contracts/models.py:17
-msgid "مستثمر"
-msgstr ""
-
-#: contracts/models.py:18
-msgid "منتفع"
-msgstr ""
-
-#: contracts/models.py:21
-msgid "استثمار لإعادة التأجير"
-msgstr ""
-
-#: contracts/models.py:22 contracts/models.py:36
-msgid "تجاري"
-msgstr ""
-
-#: contracts/models.py:23 contracts/models.py:39
-msgid "سكني"
-msgstr ""
-
-#: contracts/models.py:24 contracts/models.py:38
-msgid "صناعي"
-msgstr ""
-
-#: contracts/models.py:27
-msgid "سكن قوى عاملة - عائلي"
-msgstr ""
-
-#: contracts/models.py:28
-msgid "سكن قوى عاملة - عزابي"
-msgstr ""
-
-#: contracts/models.py:29
-msgid "سكن عائلي"
-msgstr ""
-
-#: contracts/models.py:30
-msgid "سكن عزابي"
-msgstr ""
-
-#: contracts/models.py:31
-msgid "سكن طلاب"
-msgstr ""
-
-#: contracts/models.py:32
-msgid "سكن طالبات"
-msgstr ""
-
-#: contracts/models.py:35
-msgid "زراعي"
-msgstr ""
-
-#: contracts/models.py:37
-msgid "حكومي"
-msgstr ""
-
-#: contracts/models.py:40
-msgid "سكني تجاري"
-msgstr ""
-
-#: contracts/models.py:50
-msgid "نوع المؤجر"
-msgstr ""
-
-#: contracts/models.py:55
-msgid "علاقة المؤجر"
-msgstr ""
-
-#: contracts/models.py:59
-msgid "هل المؤجر هو مالك المبنى؟"
-msgstr ""
-
-#: contracts/models.py:65
-msgid "المستأجر"
-msgstr ""
-
-#: contracts/models.py:70
-msgid "الوحدة"
-msgstr ""
-
-#: contracts/models.py:79
-msgid "تاريخ البداية"
-msgstr ""
-
-#: contracts/models.py:82
-msgid "تاريخ النهاية"
-msgstr ""
-
-#: contracts/models.py:88
-msgid "الغرض من العقد"
-msgstr ""
-
-#: contracts/models.py:93
-msgid "نوع السكن"
-msgstr ""
-
-#: contracts/models.py:98
-msgid "الغرض من استعمال الأرض"
-msgstr ""
-
-#: contracts/models.py:104
-msgid "قيمة الإيجار"
-msgstr ""
-
-#: contracts/models.py:109
-msgid "ملاحظات"
-msgstr ""
-
-#: contracts/models.py:114 tenants/models.py:31
-msgid "تاريخ الإنشاء"
-msgstr ""
-
-#: contracts/models.py:118
-msgid "تاريخ التحديث"
-msgstr ""
-
-#: contracts/models.py:122
-msgid "عقد"
-msgstr ""
-
-#: contracts/models.py:123
+#: contracts/apps.py:7 contracts/models.py:56
 msgid "العقود"
 msgstr ""
 
-#: rental_management/settings.py:115
-msgid "Arabic"
+#: contracts/models.py:7
+msgid "ساري"
+msgstr ""
+
+#: contracts/models.py:8
+msgid "منتهي"
+msgstr ""
+
+#: contracts/models.py:9
+msgid "ملغي"
+msgstr ""
+
+#: contracts/models.py:15
+msgid "رقم العقد"
+msgstr ""
+
+#: contracts/models.py:20
+msgid "المستأجر"
+msgstr ""
+
+#: contracts/models.py:25
+msgid "الوحدة"
+msgstr ""
+
+#: contracts/models.py:28
+msgid "تاريخ البداية"
+msgstr ""
+
+#: contracts/models.py:31
+msgid "تاريخ النهاية"
+msgstr ""
+
+#: contracts/models.py:36
+msgid "الإيجار الشهري"
+msgstr ""
+
+#: contracts/models.py:42
+msgid "ملف العقد"
+msgstr ""
+
+#: contracts/models.py:48 tenants/models.py:43
+msgid "الحالة"
+msgstr ""
+
+#: contracts/models.py:55
+msgid "عقد"
+msgstr ""
+
+#: core/apps.py:7
+msgid "الأساسيات"
+msgstr ""
+
+#: payments/apps.py:7
+msgid "المدفوعات"
+msgstr ""
+
+#: payments/models.py:6
+msgid "نقدي"
+msgstr ""
+
+#: payments/models.py:7
+msgid "تحويل بنكي"
+msgstr ""
+
+#: payments/models.py:8
+msgid "بطاقة"
+msgstr ""
+
+#: payments/models.py:9
+msgid "شيك"
+msgstr ""
+
+#: payments/models.py:15
+msgid "العقد"
+msgstr ""
+
+#: payments/models.py:20
+msgid "المبلغ"
+msgstr ""
+
+#: payments/models.py:23
+msgid "التاريخ الدفع"
+msgstr ""
+
+#: payments/models.py:28
+msgid "طريقة الدفع"
+msgstr ""
+
+#: payments/models.py:34
+msgid "إيصال الدفع"
+msgstr ""
+
+#: payments/models.py:41
+msgid "دفعة"
+msgstr ""
+
+#: payments/models.py:42
+msgid "الدفعات"
 msgstr ""
 
 #: rental_management/settings.py:116
+msgid "العربية"
+msgstr ""
+
+#: rental_management/settings.py:117
 msgid "English"
 msgstr ""
 
+#: reports/apps.py:7
+msgid "التقارير"
+msgstr ""
+
+#: tenants/apps.py:7 tenants/models.py:51
+msgid "المستأجرون"
+msgstr ""
+
+#: tenants/models.py:5
+msgid "نشط"
+msgstr ""
+
+#: tenants/models.py:6
+msgid "منسحب"
+msgstr ""
+
 #: tenants/models.py:7
+msgid "متأخر"
+msgstr ""
+
+#: tenants/models.py:12
 msgid "الاسم الكامل"
 msgstr ""
 
-#: tenants/models.py:11
+#: tenants/models.py:16
 msgid "الرقم المدني / الهوية"
 msgstr ""
 
-#: tenants/models.py:15
+#: tenants/models.py:20
 msgid "رقم الهاتف"
 msgstr ""
 
-#: tenants/models.py:21
+#: tenants/models.py:26
 msgid "البريد الالكتروني"
 msgstr ""
 
-#: tenants/models.py:26
+#: tenants/models.py:31
 msgid "العنوان"
 msgstr ""
 
-#: tenants/models.py:35
-msgid "آخر تعديل"
+#: tenants/models.py:37
+msgid "صورة الهوية"
 msgstr ""
 
-#: tenants/models.py:39
+#: tenants/models.py:50
 msgid "مستأجر"
-msgstr ""
-
-#: tenants/models.py:40
-msgid "المستأجرون"
 msgstr ""

@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ar'
 LANGUAGES = [
-    ('ar', _('Arabic')),
+    ('ar', _('العربية')),
     ('en', _('English')),
 ]
 TIME_ZONE = 'Asia/Muscat'
