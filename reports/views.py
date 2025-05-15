@@ -6,9 +6,9 @@ from django.db.models import Sum
 
 def summary_report(request):
   context = {
-    'contracts_total': Contract.objects.count(),
-    'rent_total': Contract.objects.aggregate(Sum('rent_amount'))['rent_amount__sum'] or 0,
-    'payments_total': Payment.objects.aggregate(Sum('amount'))['amount__sum'] or 0,
+    'total_contracts': Contract.objects.count(),
+    'total_rent': Contract.objects.aggregate(Sum('rent_amount'))['rent_amount__sum'] or 0,
+    'total_paid': Payment.objects.aggregate(Sum('amount'))['amount__sum'] or 0,
   }
   return render(request, 'reports/summary_report.html', context)
 
@@ -19,5 +19,5 @@ def occupancy_report(request):
   return render(request, 'reports/occupancy_report.html', {'total': total, 'occupied': occupied, 'vacant': vacant})
 
 def revenue_report(request):
-  payments = Payment.objects.all().order_by('date').annotate(total=Sum('amount')).order_by('date')
+  payments = Payment.objects.all().order_by('date')
   return render(request, 'reports/revenue_report.html', {'payments': payments})

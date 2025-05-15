@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from .models import Unit
 from .forms import UnitForm
 
@@ -14,7 +15,7 @@ def unit_create(request):
   form = UnitForm(request.POST or None)
   if form.is_valid():
     form.save()
-    return redirect('unit_list')
+    return redirect(reverse_lazy('buildings:list'))
   return render(request, 'buildings/unit_form.html', {'form': form})
 
 def unit_update(request, pk):
@@ -22,5 +23,5 @@ def unit_update(request, pk):
   form = UnitForm(request.POST or None, instance=unit)
   if form.is_valid():
     form.save()
-    return redirect('unit_list', pk=unit.pk)
+    return redirect(reverse_lazy('buildings:detail', kwargs={'pk': pk}))
   return render(request, 'buildings/unit_form.html', {'form': form})
