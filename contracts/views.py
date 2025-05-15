@@ -6,6 +6,7 @@ from django.core.mail import EmailMessage
 from weasyprint import HTML
 from io import BytesIO
 from weasyprint.text.fonts import FontConfiguration
+import tinycss2.color3
 
 from .models import Contract
 from .forms import ContractForm
@@ -34,14 +35,53 @@ def contract_update(request, pk):
   return render(request, 'contracts/contract_form.html', {'form': form})
 
 def contract_pdf(request, pk):
-  contract = get_object_or_404(Contract, pk=pk)
-  html_string = render_to_string('contracts/contract_pdf.html', {'contract':contract})
-  font_config = FontConfiguration()
-  html = HTML(string=html_string)
-  pdf_file = html.write_pdf(font_config=font_config)
-  response = HttpResponse(pdf_file, content_type='application/pdf')
-  response['Content-Disposition'] = f'attachment; filename="contract_{contract.contract_number}.pdf"'
-  return response
+    contract = get_object_or_404(Contract, pk=pk)
+
+    # استخدام render_to_string بدلاً من get_template.render
+    html_string = render_to_string(
+        'contracts/contract_pdf.html',
+        {'contract': contract}
+    )
+
+    # إنشاء كائن HTML
+    html = HTML(string=html_string, base_url=request.build_absolute_uri())
+
+    # تهيئة الخطوط
+    font_config = FontConfiguration()
+
+    # إضافة CSS إضافي إذا لزم الأمر
+    css = CSS(string='''
+        @page {
+            size: A4;
+            margin: 1.5cm;
+            @top-right {
+                content: "العقد رقم: " counter(page) " من " counter(pages);
+                font-size: 10pt;
+            }
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        .contract-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contract-title {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    ''', font_config=font_config)
+
+    # إنشاء ملف PDF
+    pdf_file = html.write_pdf(stylesheets=[css], font_config=font_config)
+
+    # إعداد الاستجابة
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="contract_{contract.contract_number}.pdf"'
+
+    return response
 
 def send_contract_email(request, pk):
   contract = get_object_or_404(Contract, pk=pk)
