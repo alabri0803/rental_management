@@ -82,19 +82,3 @@ def contract_pdf(request, pk):
     response['Content-Disposition'] = f'attachment; filename="contract_{contract.contract_number}.pdf"'
 
     return response
-
-def send_contract_email(request, pk):
-  contract = get_object_or_404(Contract, pk=pk)
-  template = get_template('contracts/contract_pdf.html')
-  html = template.render({'contract': contract})
-  pdf = BytesIO()
-  pisa.CreatePDF(html, dest=pdf)
-
-  email = EmailMessage(
-    subject=f"عقد رقم {contract.contract_number}",
-    body="مرفق مع هذا البريد الإلكتروني هو عقد الإيجار.",
-    to=[contract.tenant.email]
-  )
-  email.attach(f"contract_{contract.contract_number}.pdf", pdf.getvalue(), 'application/pdf')
-  email.send()
-  return redirect(reverse_lazy('contracts:detail', kwargs={'pk': pk}))
