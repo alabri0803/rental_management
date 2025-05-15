@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-14 14:32+0000\n"
+"POT-Creation-Date: 2025-05-15 18:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,11 +82,11 @@ msgstr "Coordinates"
 msgid "وحدة"
 msgstr "Unit"
 
-#: buildings/models.py:54
+#: buildings/models.py:54 templates/base.html:26
 msgid "الوحدات"
 msgstr "Units"
 
-#: contracts/apps.py:7 contracts/models.py:56 templates/base.html:21
+#: contracts/apps.py:7 contracts/models.py:56 templates/base.html:20
 msgid "العقود"
 msgstr "Contracts"
 
@@ -142,7 +142,7 @@ msgstr "Contract"
 msgid "الأساسيات"
 msgstr "Core"
 
-#: payments/apps.py:7 templates/base.html:22
+#: payments/apps.py:7 templates/base.html:23
 msgid "المدفوعات"
 msgstr "Payments"
 
@@ -190,21 +190,29 @@ msgstr "Payment"
 msgid "الدفعات"
 msgstr "Payments"
 
-#: rental_management/settings.py:116
+#: rental_management/settings.py:119 templates/base.html:38
 msgid "العربية"
 msgstr "Arabic"
 
-#: rental_management/settings.py:117
+#: rental_management/settings.py:120 templates/base.html:36
 msgid "English"
 msgstr "English"
 
-#: reports/apps.py:7 templates/base.html:23
+#: reports/apps.py:7 templates/base.html:29
 msgid "التقارير"
 msgstr "Reports"
 
-#: templates/base.html:20
-msgid "الرئيسية"
-msgstr "Home"
+#: templates/base.html:6
+msgid "نظام إدارة الإيجارات"
+msgstr "Rental Management System"
+
+#: templates/base.html:14
+msgid "لوحة التحكم"
+msgstr "Dashboard"
+
+#: templates/base.html:17
+msgid "المستأجرين"
+msgstr "Tenants"
 
 #: tenants/apps.py:7 tenants/models.py:51
 msgid "المستأجرون"
@@ -249,3 +257,7 @@ msgstr "ID Picture"
 #: tenants/models.py:50
 msgid "مستأجر"
 msgstr "Tenant"
+
+#: templates/base.html:12
+msgid "الرئيسية"
+msgstr "Home"
