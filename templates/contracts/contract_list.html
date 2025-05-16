@@ -1,14 +1,53 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "قائمة العقود" %}{% endblock %}
 {% block content %}
-<h2>
-  قائمة العقود
-</h2>
-<a href="{% url 'contract_create' %}">+ إضافة عقد</a>
-<ul>
-  {% for contract in contracts %}
-  <li>
-    <a href="{% url 'contract_detail' contract.pk %}">{{ contract.contract_number }} - {{ contract.tenant }}</a>
-  </li>
-  {% endfor %}
-</ul>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>{% trans "قائمة العقود" %}</h2>
+  </a>
+</div>
+<a href="{% url 'contracts:add' %}" class="btn btn-success mb-3">
+  {% trans "اضافة عقد جديد" %}
+</a>
+<table class="table table-bordered table-striped align-middle text-center">
+  <thead class="table-light">
+    <tr>
+      <th>{% trans "رقم العقد" %}</th>
+      <th>{% trans "المستأجر" %}</th>
+      <th>{% trans "الوحدة" %}</th>
+      <th>{% trans "البداية" %}</th>
+      <th>{% trans "النهاية" %}</th>
+      <th>{% trans "الحالة" %}</th>
+      <th>{% trans "إجراءات" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contract in contracts %}
+    <tr>
+      <td>{{ contract.contract_number }}</td>
+      <td>{{ contract.tenant.full_name }}</td>
+      <td>{{ contract.unit.name }}</td>
+      <td>{{ contract.start_date }}</td>
+      <td>{{ contract.end_date }}</td>
+      <td>
+        <span class="badge {% if contract.is_active.status == 'AC' %}bg-success{% elif contract.status == 'EN' %}bg-secondary{% else %}bg-danger{% endif %}">
+          {{ contract.get_status_display }}
+        </span>
+      </td>
+      <td>
+        <a href="{% url 'contracts:detail' contract.pk %}" class="btn btn-sm btn-outline-info">
+          {% trans "عرض" %}
+        </a>
+        <a href="{% url 'contracts:edit' contract.pk %}" class="btn btn-sm btn-outline-warning">
+          {% trans "تعديل" %}
+        </a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="7" class="text-muted">{% trans "لا توجد عقود حالياً." %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

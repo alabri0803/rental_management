@@ -1,21 +1,30 @@
 {% extends "base.html" %}
+{% laod i18n %}
+{% block title %}{% trans "تفاصيل العقد" %}{% endblock %}
 {% block content %}
-<h2>
-  تفاصيل العقد: {{ contract.contract_number }}
-</h2>
-<p>
-  المستأجر: {{ contract.tenant }}
-</p>
-<p>
-  الوحدة: {{ contract.unit }}
-</p>
-<p>
-  الإيجار: {{ contract.rent_amount }}
-</p>
-<p>
-  من تاريخ: {{ contract.start_date }} إلى: {{ contract.end_date }}
-</p>
-<a href="{% url 'contract_update' contract.pk %}">
-  تعديل
-</a>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>
+    {% trans "تفاصيل العقد الإيجار" %}
+  </h2>
+</div>
+<div class="card shadow-sm border-secondary">
+  <div class="card-header bg-light fw-bold">
+    {% trans "رقم العقد" %}": {{ contract.contract_number }}
+</div>
+  <div class="card-body">
+    <p><strong>{% trans "المستأجر" %}":</strong> {{ contract.tenant.full_name }}</p>
+    <p><strong>{% trans "الوحدة" %}":</strong> {{ contract.unit.name }} - {{ contract.unit.get_type_display }}</p>
+    <p><strong>{% trans "تاريخ البداية" %}":</strong> {{ contract.start_date }}</p>
+    <p><strong>{% trans "تاريخ النهاية" %}":</strong> {{ contract.end_date }}</p>
+    <p><strong>{% trans "الإيجار الشهري" %}":</strong> {{ contract.rent_amount }}{% trans "ر.ع." %}</p>
+    <p><strong>{% trans "الحالة" %}":</strong> {{ contract.get_status_display }}</p>
+    {% if contract.contract_file %}
+      <p><strong>{% trans "الملف المرفق" %}":</strong> <a href="{{ contract.contract_file.url }}" class="btn btn-sm btn-outline-info" target="_blank">{% trans "عرض / تحميل" %}</a></p>
+    {% endif %}
+  </div>
+  <div class="card-footer bg-light">
+    <a href="{% url 'contracts:edit' contract.pk %}" class="btn btn-sm btn-outline-primary">{% trans "تعديل" %}</a>
+    <a href="{% url 'contracts:list' %}" class="btn btn-sm btn-outline-secondary">{% trans "رجوع" %}</a>
+  </div>
+</div>
 {% endblock %}

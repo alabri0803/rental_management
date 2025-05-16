@@ -15,4 +15,5 @@ class ContractForm(forms.ModelForm):
       'rent_amount': forms.NumberInput(attrs={'class': 'form-control'}),
       'contract_file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
       'status': forms.Select(attrs={'class': 'form-select'}),
+      'contract_file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
     }
