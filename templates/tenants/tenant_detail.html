@@ -1,18 +1,29 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "تفاصيل المستأجر" %}{% endblock %}
 {% block content %}
-<h2>
-  {{ tenant.full_name }}
-</h2>
-<p>
-  الرقم المدني: {{ tenant.national_id }}
-</p>
-<p>
-  الهاتف: {{ tenant.phone }}
-</p>
-<p>
-  البريد: {{ tenant.email }}
-</p>
-<a href="{% url 'tenant_update' tenant.pk %}">
-  تعديل
-</a>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>
+    {% trans "تفاصيل المستأجر" %}
+  </h2>
+</div>
+<div class="card shadow-sm border-secondary">
+  <div class="card-header bg-light fw-bold">
+    {{ tenant.full_name }}
+  </div>
+  <div class="card-body">
+    <p><strong>{% trans "رقم المدني" %}:</strong> {{ tenant.national_id }}</p>
+    <p><strong>{% trans "رقم الهاتف" %}:</strong> {{ tenant.phone }}</p>
+    <p><strong>{% trans "البريد الإلكتروني" %}:</strong> {{ tenant.email }}</p>
+    <p><strong>{% trans "العنوان" %}:</strong> {{ tenant.address|default:"-" }}</p>
+    <p><strong>{% trans "الحالة" %}:</strong> {{ tenant.get_status_display }}</p>
+    {% if tenant.photo_id %}
+    <p><strong>{% trans "صورة الهوية" %}:</strong> <a href="{{ tenant.photo_id.url }}" target="_blank">{% trans "عرض الصورة" %}</a></p>
+    {% endif %}
+  </div>
+  <div class="card-footer text-end">
+    <a href="{% url 'tenants:edit' tenant.pk %}" class="btn btn-primary btn-sm">{% trans "تعديل" %}</a>
+    <a href="{% url 'tenants:list' %}" class="btn btn-secondary btn-sm">{% trans "رجوع" %}</a>
+  </div>
+</div>
 {% endblock %}
