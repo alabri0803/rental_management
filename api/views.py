@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-
+from django.utils.translation import gettext_lazy as _
 from tenants.models import Tenant
 from contracts.models import Contract
 from payments.models import Payment
@@ -30,7 +30,7 @@ class ContractViewSet(viewsets.ModelViewSet):
   queryset = Contract.objects.select_related('tenant', 'unit').all()
   permission_classes = [IsAuthenticatedOrReadOnly]
   filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-  filterset_fields = ['status', 'unit__type']
+  filterset_fields = ['status', 'tenant__full_name', 'unit__type']
   search_fields = ['contract_number', 'tenant__full_name']
   ordering_fields = ['start_date', 'end_date', 'rent_amount']
 
@@ -40,11 +40,11 @@ class ContractViewSet(viewsets.ModelViewSet):
     return ContractWriteSerializer
   
 class PaymentViewSet(viewsets.ModelViewSet):
-  queryset = Payment.objects.select_related('contract').all()
+  queryset = Payment.objects.select_related('contract', 'contract__tenant').all()
   permission_classes = [IsAuthenticatedOrReadOnly]
   filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-  filterset_fields = ['method', 'contract__status']
-  search_fields = ['contract__contract_number']
+  filterset_fields = ['method', 'date', 'contract__contract_number']
+  search_fields = ['contract__contract_number', 'contract__tenant__full_name']
   ordering_fields = ['date', 'amount']
 
   def get_serializer_class(self):
