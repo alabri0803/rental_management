@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ unit.name }} - {{ trans "تفاصيل الوحدة" %}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>{% trans "تفاصيل الوحدة العقارية" %}</h2>
+</div>
+<div class="card border-secondary shadow-sm">
+  <div class="card-header bg-light fw-bold">
+    {{ unit.name }} - {{ unit.get_type_display }}
+  </div>
+  <div class="card-body">
+    <p><strong>{% trans "اسم البناية" %}:</strong> {{ unit.building_name }}</p>
+    <p><strong>{% trans "الطابق" %}:</strong> {{ unit.floor }}</p>
+    <p><strong>{% trans "المساحة" %}:</strong> {{ unit.area }} {% trans "متر مربع" %}</p>
+    <p><strong>{% trans "مشغولة؟" %}:</strong>{% if unit.is_occupied %} {% trans "نعم" %}{% else %} {% trans "لا" %}{% endif %}</p>
+    <p><strong>{% trans "مؤثثة؟" %}:</strong>{% if unit.is_furnished %} {% trans "نعم" %}{% else %} {% trans "لا" %}{% endif %}</p>
+    {% if unit.coordinates %}
+    <p><strong>{% trans "الإحداثيات" %}:</strong> {{ unit.coordinates }}</p>
+  </div>
+  <div class="card-footer text-end">
+    <a href="{% url 'buildings:edit' unit.pk %}" class="btn btn-outline-primary btn-sm">{% trans "تعديل" %}</a>
+    <a href="{% url 'buildings:list' %}" class="btn btn-outline-secondary btn-sm">
+      {% trans "العودة للقائمة" %}
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 14:27+0000\n"
+"POT-Creation-Date: 2025-05-16 14:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,7 @@ msgid "اسم الوحدة"
 msgstr "Unit Name"
 
 #: buildings/models.py:18 templates/buildings/floor_list.html:14
+#: templates/buildings/unit_detail.html:14
 msgid "الطابق"
 msgstr "Floor"
 
@@ -62,11 +63,11 @@ msgstr "Building Name"
 msgid "نوع الوحدة"
 msgstr "Unit Type"
 
-#: buildings/models.py:31
+#: buildings/models.py:31 templates/buildings/unit_detail.html:16
 msgid "مشغولة؟"
 msgstr "Occupied?"
 
-#: buildings/models.py:35
+#: buildings/models.py:35 templates/buildings/unit_detail.html:17
 msgid "مؤثثة؟"
 msgstr "Furnished?"
 
@@ -74,7 +75,7 @@ msgstr "Furnished?"
 msgid "المساحة (م2)"
 msgstr "Area (m²)"
 
-#: buildings/models.py:46
+#: buildings/models.py:46 templates/buildings/unit_detail.html:19
 msgid "الإحداثيات"
 msgstr "Coordinates"
 
@@ -230,6 +231,40 @@ msgstr "View Units"
 #: templates/buildings/floor_list.html:28
 msgid "لا توجد طوابق مسجلة حالياً."
 msgstr "There are no floors currently registered."
+
+#: templates/buildings/unit_detail.html:6
+msgid "تفاصيل الوحدة العقارية"
+msgstr "Unit Details"
+
+#: templates/buildings/unit_detail.html:13
+msgid "اسم البناية"
+msgstr "Building Name"
+
+#: templates/buildings/unit_detail.html:15
+msgid "المساحة"
+msgstr "Area"
+
+#: templates/buildings/unit_detail.html:15
+msgid "متر مربع"
+msgstr "square meters"
+
+#: templates/buildings/unit_detail.html:16
+#: templates/buildings/unit_detail.html:17
+msgid "نعم"
+msgstr "Yes"
+
+#: templates/buildings/unit_detail.html:16
+#: templates/buildings/unit_detail.html:17
+msgid "لا"
+msgstr "No"
+
+#: templates/buildings/unit_detail.html:22
+msgid "تعديل"
+msgstr "Edit"
+
+#: templates/buildings/unit_detail.html:24
+msgid "العودة للقائمة"
+msgstr "Back to List"
 
 #: templates/dashboard.html:29
 msgid "الإجمالي"
