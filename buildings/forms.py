@@ -14,4 +14,5 @@ class UnitForm(forms.ModelForm):
       'is_furnished': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
       'area': forms.NumberInput(attrs={'class': 'form-control'}),
       'coordinates': forms.TextInput(attrs={'class': 'form-control'}),
+      'field_name': forms.TextInput(attrs={'class': 'form-control'}),
     }
