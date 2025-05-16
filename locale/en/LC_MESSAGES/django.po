@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 14:50+0000\n"
+"POT-Creation-Date: 2025-05-16 15:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,6 +52,7 @@ msgstr "Unit Name"
 
 #: buildings/models.py:18 templates/buildings/floor_list.html:14
 #: templates/buildings/unit_detail.html:14
+#: templates/buildings/unit_list.html:17
 msgid "الطابق"
 msgstr "Floor"
 
@@ -132,7 +133,8 @@ msgstr "Monthly Rent"
 msgid "ملف العقد"
 msgstr "Contract File"
 
-#: contracts/models.py:48 tenants/models.py:43
+#: contracts/models.py:48 templates/buildings/unit_list.html:20
+#: tenants/models.py:43
 msgid "الحالة"
 msgstr "Status"
 
@@ -241,10 +243,12 @@ msgid "اسم البناية"
 msgstr "Building Name"
 
 #: templates/buildings/unit_detail.html:15
+#: templates/buildings/unit_list.html:19
 msgid "المساحة"
 msgstr "Area"
 
 #: templates/buildings/unit_detail.html:15
+#: templates/buildings/unit_list.html:31
 msgid "متر مربع"
 msgstr "square meters"
 
@@ -259,6 +263,7 @@ msgid "لا"
 msgstr "No"
 
 #: templates/buildings/unit_detail.html:22
+#: templates/buildings/unit_list.html:44
 msgid "تعديل"
 msgstr "Edit"
 
@@ -266,13 +271,89 @@ msgstr "Edit"
 msgid "العودة للقائمة"
 msgstr "Back to List"
 
+#: templates/buildings/unit_form.html:3
+#, fuzzy
+#| msgid "اسم الوحدة"
+msgid "تعديل الوحدة"
+msgstr "Unit Name"
+
+#: templates/buildings/unit_form.html:3 templates/buildings/unit_list.html:10
+msgid "إضافة وحدة جديدة"
+msgstr ""
+
+#: templates/buildings/unit_form.html:7
+#, fuzzy
+#| msgid "تفاصيل الوحدة العقارية"
+msgid "تعديل الوحدة العقارية"
+msgstr "Unit Details"
+
+#: templates/buildings/unit_form.html:9
+#, fuzzy
+#| msgid "الوحدات العقارية"
+msgid "إضافة وحدة عقارية جديدة"
+msgstr "Real Estate Units"
+
+#: templates/buildings/unit_form.html:34
+msgid "حفظ"
+msgstr ""
+
+#: templates/buildings/unit_form.html:37
+msgid "إلغاء"
+msgstr ""
+
+#: templates/buildings/unit_list.html:3
+#, fuzzy
+#| msgid "قائمة الطوابق"
+msgid "قائمة الوحدات"
+msgstr "Floors List"
+
+#: templates/buildings/unit_list.html:6
+#, fuzzy
+#| msgid "الوحدات العقارية"
+msgid "قائمة الوحدات العقارية"
+msgstr "Real Estate Units"
+
+#: templates/buildings/unit_list.html:15
+#, fuzzy
+#| msgid "الاسم الكامل"
+msgid "الاسم"
+msgstr "Full Name"
+
+#: templates/buildings/unit_list.html:16
+#, fuzzy
+#| msgid "اسم البناية"
+msgid "البناية"
+msgstr "Building Name"
+
+#: templates/buildings/unit_list.html:18
+msgid "النوع"
+msgstr ""
+
+#: templates/buildings/unit_list.html:21
+msgid "الإجراءات"
+msgstr ""
+
+#: templates/buildings/unit_list.html:34 templates/dashboard.html:29
+msgid "مشغولة"
+msgstr "Occupied"
+
+#: templates/buildings/unit_list.html:36
+msgid "شاغرة"
+msgstr ""
+
+#: templates/buildings/unit_list.html:41
+msgid "عرض"
+msgstr ""
+
+#: templates/buildings/unit_list.html:51
+#, fuzzy
+#| msgid "لا توجد طوابق مسجلة حالياً."
+msgid "لا توجد وحدات حالياً."
+msgstr "There are no floors currently registered."
+
 #: templates/dashboard.html:29
 msgid "الإجمالي"
 msgstr "Total"
-
-#: templates/dashboard.html:29
-msgid "مشغولة"
-msgstr "Occupied"
 
 #: templates/dashboard.html:36
 msgid "الإيرادات"
