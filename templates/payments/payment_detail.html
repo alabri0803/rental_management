@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "تفاصيل الدفعة" %}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{% trans "تفاصيل الدفعة المالية" %}</h1>
+</div>
+<div class="card shadow-sm border-secondary">
+  <div class="card-header bg-light fw-bold">
+    {% trans "رقم العقد" %}: {{ payment.contract.contract_number }}
+  </div>
+  <div class="card-body">
+    <p><strong>{% trans "اسم المستأجر" %}:</strong> {{ payment.contract.tenant.full_name }}</p>
+    <p><strong>{% trans "المبلغ" %}:</strong> {{ payment.amount }}{% trans "ر.ع." %}</p>
+    <p><strong>{% trans "تاريخ الدفع" %}:</strong> {{ payment.payment_date }}</p>
+    <p><strong>{% trans "طريقة الدفع" %}:</strong> {{ payment.get_payment_method_display }}</p>
+    {% if payment.receipt %}
+      <p><strong>{% trans "إيصال الدفع" %}:</strong> <a href="{{ payment.receipt.url }}" target="_blank" class="btn btn-sm btn-outline-info">{% trans "عرض / تحميل" %}</a></p>
+    {% endif %}
+  </div>
+  <div class="card-footer text-end">
+    <a href="{% url 'payments:edit' payment.pk %}" class="btn btn-primary">{% trans "تعديل" %}</a>
+    <a href="{% url 'payments:list' %}" class="btn btn-secondary">{% trans "عودة" %}</a>
+  </div>
+</div>
+{% endblock %}

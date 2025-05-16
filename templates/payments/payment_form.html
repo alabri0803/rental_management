@@ -1,11 +1,43 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% if form.instance.pk %}{% trans "تعديل الدفعة" %}{% else %}{% trans "اضافة دفعة جديدة" %}{% endif %}{% endblock %}
 {% block content %}
-<h2>
-  {% if form.instance.pk %}تعديل{% else %}اضافة{% endif %}
-</h2>
+<div class="d-flex justify-content-between mb-4">
+  <h2>
+    {% if form.instance.pk %}
+      {% trans "تعديل الدفعة" %}
+    {% else %}
+      {% trans "اضافة دفعة جديدة" %}
+    {% endif %}
+  </h2>
+</div>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-success">حفظ</button>
+  <div class="card shadow-sm border-secondary">
+    <div class="card-body">
+      <div class="row">
+        {% for field in form.visible_fields %}
+          <div class="col-md-6 mb-3">
+            <label class="form-label">
+              {{ field.label_tag }}
+            </label>
+              {{ field }}
+              {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+              {% if field.errors %}
+                <div class="text-danger small">
+                  {{ field.errors|striptags }}
+                </div>
+              {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="card-footer text-end">
+      <button type="submit" class="btn btn-primary">{% trans "حفظ" %}</button>
+      <a href="{% url 'payments:list' %}" class="btn btn-secondary">{% trans "عودة" %}</a>
+    </div>
+  </div>
 </form>
 {% endblock %}
