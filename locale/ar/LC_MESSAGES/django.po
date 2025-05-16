@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-15 18:05+0000\n"
+"POT-Creation-Date: 2025-05-16 14:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: buildings/apps.py:7
+#: buildings/apps.py:7 templates/dashboard.html:28
 msgid "الوحدات العقارية"
 msgstr ""
 
@@ -88,6 +88,7 @@ msgid "الوحدات"
 msgstr ""
 
 #: contracts/apps.py:7 contracts/models.py:56 templates/base.html:20
+#: templates/dashboard.html:12
 msgid "العقود"
 msgstr ""
 
@@ -207,12 +208,24 @@ msgstr ""
 msgid "نظام إدارة الإيجارات"
 msgstr ""
 
-#: templates/base.html:14
+#: templates/base.html:14 templates/dashboard.html:3 templates/dashboard.html:6
 msgid "لوحة التحكم"
 msgstr ""
 
-#: templates/base.html:17
+#: templates/base.html:17 templates/dashboard.html:20
 msgid "المستأجرين"
+msgstr ""
+
+#: templates/dashboard.html:29
+msgid "الإجمالي"
+msgstr ""
+
+#: templates/dashboard.html:29
+msgid "مشغولة"
+msgstr ""
+
+#: templates/dashboard.html:36
+msgid "الإيرادات"
 msgstr ""
 
 #: tenants/apps.py:7 tenants/models.py:51
