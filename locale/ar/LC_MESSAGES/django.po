@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 15:13+0000\n"
+"POT-Creation-Date: 2025-05-16 17:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,146 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: api/serializers.py:24 templates/tenants/tenant_list.html:16
+#: tenants/models.py:12
+msgid "الاسم الكامل"
+msgstr ""
+
+#: api/serializers.py:25
+msgid "الرقم الوطني"
+msgstr ""
+
+#: api/serializers.py:26 templates/tenants/tenant_detail.html:16
+#: tenants/models.py:20
+msgid "رقم الهاتف"
+msgstr ""
+
+#: api/serializers.py:27 templates/tenants/tenant_detail.html:17
+msgid "البريد الإلكتروني"
+msgstr ""
+
+#: api/serializers.py:28 templates/tenants/tenant_detail.html:18
+#: tenants/models.py:31
+msgid "العنوان"
+msgstr ""
+
+#: api/serializers.py:29 api/serializers.py:91 contracts/models.py:48
+#: templates/buildings/unit_list.html:20
+#: templates/contracts/contract_detail.html:20
+#: templates/contracts/contract_list.html:20
+#: templates/tenants/tenant_detail.html:19
+#: templates/tenants/tenant_list.html:19 tenants/models.py:43
+msgid "الحالة"
+msgstr ""
+
+#: api/serializers.py:30 templates/tenants/tenant_detail.html:21
+#: tenants/models.py:37
+msgid "صورة الهوية"
+msgstr ""
+
+#: api/serializers.py:50 buildings/models.py:15
+msgid "اسم الوحدة"
+msgstr ""
+
+#: api/serializers.py:51 templates/buildings/unit_detail.html:13
+msgid "اسم البناية"
+msgstr ""
+
+#: api/serializers.py:52 buildings/models.py:18
+#: templates/buildings/floor_list.html:14
+#: templates/buildings/unit_detail.html:14
+#: templates/buildings/unit_list.html:17
+msgid "الطابق"
+msgstr ""
+
+#: api/serializers.py:53 buildings/models.py:27
+msgid "نوع الوحدة"
+msgstr ""
+
+#: api/serializers.py:54 buildings/models.py:31
+#: templates/buildings/unit_detail.html:16
+msgid "مشغولة؟"
+msgstr ""
+
+#: api/serializers.py:55 buildings/models.py:35
+#: templates/buildings/unit_detail.html:17
+msgid "مؤثثة؟"
+msgstr ""
+
+#: api/serializers.py:56
+msgid "المساحة بالمتر"
+msgstr ""
+
+#: api/serializers.py:57 buildings/models.py:46
+#: templates/buildings/unit_detail.html:19
+msgid "الإحداثيات"
+msgstr ""
+
+#: api/serializers.py:85 contracts/models.py:15
+#: templates/contracts/contract_detail.html:12
+#: templates/contracts/contract_list.html:15
+#: templates/payments/payment_detail.html:10
+#: templates/payments/payment_list.html:17
+msgid "رقم العقد"
+msgstr ""
+
+#: api/serializers.py:86 contracts/models.py:20
+#: templates/contracts/contract_detail.html:15
+#: templates/contracts/contract_list.html:16
+#: templates/payments/payment_list.html:18
+msgid "المستأجر"
+msgstr ""
+
+#: api/serializers.py:87 contracts/models.py:25
+#: templates/contracts/contract_detail.html:16
+#: templates/contracts/contract_list.html:17
+msgid "الوحدة"
+msgstr ""
+
+#: api/serializers.py:88 contracts/models.py:28
+#: templates/contracts/contract_detail.html:17
+msgid "تاريخ البداية"
+msgstr ""
+
+#: api/serializers.py:89 contracts/models.py:31
+#: templates/contracts/contract_detail.html:18
+msgid "تاريخ النهاية"
+msgstr ""
+
+#: api/serializers.py:90
+msgid "الايجار الشهري"
+msgstr ""
+
+#: api/serializers.py:92 contracts/models.py:42
+msgid "ملف العقد"
+msgstr ""
+
+#: api/serializers.py:121 payments/models.py:15
+msgid "العقد"
+msgstr ""
+
+#: api/serializers.py:122 payments/models.py:20
+#: templates/payments/payment_detail.html:14
+#: templates/payments/payment_list.html:19
+msgid "المبلغ"
+msgstr ""
+
+#: api/serializers.py:123 templates/payments/payment_detail.html:15
+#: templates/payments/payment_list.html:20
+msgid "تاريخ الدفع"
+msgstr ""
+
+#: api/serializers.py:124 payments/models.py:28
+#: templates/payments/payment_detail.html:16
+#: templates/payments/payment_list.html:21
+msgid "طريقة الدفع"
+msgstr ""
+
+#: api/serializers.py:125 payments/models.py:34
+#: templates/payments/payment_detail.html:18
+msgid "إيصال الدفع"
+msgstr ""
 
 #: buildings/apps.py:7 templates/dashboard.html:28
 msgid "الوحدات العقارية"
@@ -47,38 +187,12 @@ msgstr ""
 msgid "مول"
 msgstr ""
 
-#: buildings/models.py:15
-msgid "اسم الوحدة"
-msgstr ""
-
-#: buildings/models.py:18 templates/buildings/floor_list.html:14
-#: templates/buildings/unit_detail.html:14
-#: templates/buildings/unit_list.html:17
-msgid "الطابق"
-msgstr ""
-
 #: buildings/models.py:22
 msgid "اسم المبنى"
 msgstr ""
 
-#: buildings/models.py:27
-msgid "نوع الوحدة"
-msgstr ""
-
-#: buildings/models.py:31 templates/buildings/unit_detail.html:16
-msgid "مشغولة؟"
-msgstr ""
-
-#: buildings/models.py:35 templates/buildings/unit_detail.html:17
-msgid "مؤثثة؟"
-msgstr ""
-
 #: buildings/models.py:40
 msgid "المساحة (م2)"
-msgstr ""
-
-#: buildings/models.py:46 templates/buildings/unit_detail.html:19
-msgid "الإحداثيات"
 msgstr ""
 
 #: buildings/models.py:53
@@ -106,37 +220,8 @@ msgstr ""
 msgid "ملغي"
 msgstr ""
 
-#: contracts/models.py:15
-msgid "رقم العقد"
-msgstr ""
-
-#: contracts/models.py:20
-msgid "المستأجر"
-msgstr ""
-
-#: contracts/models.py:25
-msgid "الوحدة"
-msgstr ""
-
-#: contracts/models.py:28
-msgid "تاريخ البداية"
-msgstr ""
-
-#: contracts/models.py:31
-msgid "تاريخ النهاية"
-msgstr ""
-
-#: contracts/models.py:36
+#: contracts/models.py:36 templates/contracts/contract_detail.html:19
 msgid "الإيجار الشهري"
-msgstr ""
-
-#: contracts/models.py:42
-msgid "ملف العقد"
-msgstr ""
-
-#: contracts/models.py:48 templates/buildings/unit_list.html:20
-#: tenants/models.py:43
-msgid "الحالة"
 msgstr ""
 
 #: contracts/models.py:55
@@ -167,24 +252,8 @@ msgstr ""
 msgid "شيك"
 msgstr ""
 
-#: payments/models.py:15
-msgid "العقد"
-msgstr ""
-
-#: payments/models.py:20
-msgid "المبلغ"
-msgstr ""
-
 #: payments/models.py:23
 msgid "التاريخ الدفع"
-msgstr ""
-
-#: payments/models.py:28
-msgid "طريقة الدفع"
-msgstr ""
-
-#: payments/models.py:34
-msgid "إيصال الدفع"
 msgstr ""
 
 #: payments/models.py:41
@@ -239,10 +308,6 @@ msgstr ""
 msgid "تفاصيل الوحدة العقارية"
 msgstr ""
 
-#: templates/buildings/unit_detail.html:13
-msgid "اسم البناية"
-msgstr ""
-
 #: templates/buildings/unit_detail.html:15
 #: templates/buildings/unit_list.html:19
 msgid "المساحة"
@@ -263,12 +328,18 @@ msgstr ""
 msgid "لا"
 msgstr ""
 
-#: templates/buildings/unit_detail.html:22
+#: templates/buildings/unit_detail.html:23
 #: templates/buildings/unit_list.html:44
+#: templates/contracts/contract_detail.html:26
+#: templates/contracts/contract_list.html:42
+#: templates/payments/payment_detail.html:22
+#: templates/payments/payment_list.html:38
+#: templates/tenants/tenant_detail.html:25
+#: templates/tenants/tenant_list.html:38
 msgid "تعديل"
 msgstr ""
 
-#: templates/buildings/unit_detail.html:24
+#: templates/buildings/unit_detail.html:25
 msgid "العودة للقائمة"
 msgstr ""
 
@@ -289,10 +360,13 @@ msgid "إضافة وحدة عقارية جديدة"
 msgstr ""
 
 #: templates/buildings/unit_form.html:34
+#: templates/contracts/contract_form.html:41
+#: templates/payments/payment_form.html:38
+#: templates/tenants/tenant_form.html:32
 msgid "حفظ"
 msgstr ""
 
-#: templates/buildings/unit_form.html:37
+#: templates/buildings/unit_form.html:37 templates/tenants/tenant_form.html:33
 msgid "إلغاء"
 msgstr ""
 
@@ -317,6 +391,8 @@ msgid "النوع"
 msgstr ""
 
 #: templates/buildings/unit_list.html:21
+#: templates/payments/payment_list.html:22
+#: templates/tenants/tenant_list.html:20
 msgid "الإجراءات"
 msgstr ""
 
@@ -329,11 +405,84 @@ msgid "شاغرة"
 msgstr ""
 
 #: templates/buildings/unit_list.html:41
+#: templates/contracts/contract_list.html:39
+#: templates/payments/payment_list.html:35
+#: templates/tenants/tenant_list.html:37
 msgid "عرض"
 msgstr ""
 
 #: templates/buildings/unit_list.html:51
 msgid "لا توجد وحدات حالياً."
+msgstr ""
+
+#: templates/contracts/contract_detail.html:3
+msgid "تفاصيل العقد"
+msgstr ""
+
+#: templates/contracts/contract_detail.html:7
+msgid "تفاصيل العقد الإيجار"
+msgstr ""
+
+#: templates/contracts/contract_detail.html:19
+#: templates/payments/payment_detail.html:14
+#: templates/payments/payment_list.html:30
+msgid "ر.ع."
+msgstr ""
+
+#: templates/contracts/contract_detail.html:22
+msgid "الملف المرفق"
+msgstr ""
+
+#: templates/contracts/contract_detail.html:22
+#: templates/payments/payment_detail.html:18
+msgid "عرض / تحميل"
+msgstr ""
+
+#: templates/contracts/contract_detail.html:27
+#: templates/tenants/tenant_detail.html:26
+msgid "رجوع"
+msgstr ""
+
+#: templates/contracts/contract_form.html:3
+msgid "تعديل عقد"
+msgstr ""
+
+#: templates/contracts/contract_form.html:3
+#: templates/contracts/contract_list.html:10
+msgid "اضافة عقد جديد"
+msgstr ""
+
+#: templates/contracts/contract_form.html:8
+msgid "تعديل بيانات عقد الإيجار"
+msgstr ""
+
+#: templates/contracts/contract_form.html:10
+msgid "اضافة عقد إيجار جديد"
+msgstr ""
+
+#: templates/contracts/contract_form.html:44
+msgid "الغاء"
+msgstr ""
+
+#: templates/contracts/contract_list.html:3
+#: templates/contracts/contract_list.html:6
+msgid "قائمة العقود"
+msgstr ""
+
+#: templates/contracts/contract_list.html:18
+msgid "البداية"
+msgstr ""
+
+#: templates/contracts/contract_list.html:19
+msgid "النهاية"
+msgstr ""
+
+#: templates/contracts/contract_list.html:21
+msgid "إجراءات"
+msgstr ""
+
+#: templates/contracts/contract_list.html:48
+msgid "لا توجد عقود حالياً."
 msgstr ""
 
 #: templates/dashboard.html:29
@@ -346,6 +495,81 @@ msgstr ""
 
 #: templates/dashboard.html:37
 msgid "ر.ع"
+msgstr ""
+
+#: templates/payments/payment_detail.html:3
+msgid "تفاصيل الدفعة"
+msgstr ""
+
+#: templates/payments/payment_detail.html:6
+msgid "تفاصيل الدفعة المالية"
+msgstr ""
+
+#: templates/payments/payment_detail.html:13
+msgid "اسم المستأجر"
+msgstr ""
+
+#: templates/payments/payment_detail.html:23
+#: templates/payments/payment_form.html:39
+msgid "عودة"
+msgstr ""
+
+#: templates/payments/payment_form.html:3
+#: templates/payments/payment_form.html:8
+msgid "تعديل الدفعة"
+msgstr ""
+
+#: templates/payments/payment_form.html:3
+#: templates/payments/payment_form.html:10
+msgid "اضافة دفعة جديدة"
+msgstr ""
+
+#: templates/payments/payment_list.html:3
+#: templates/payments/payment_list.html:7
+msgid "قائمة المدفوعات"
+msgstr ""
+
+#: templates/payments/payment_list.html:11
+msgid "إضافة دفعة جديدة"
+msgstr ""
+
+#: templates/payments/payment_list.html:44
+msgid "لا توجد مدفوعات حالياً"
+msgstr ""
+
+#: templates/tenants/tenant_detail.html:3
+#: templates/tenants/tenant_detail.html:7
+msgid "تفاصيل المستأجر"
+msgstr ""
+
+#: templates/tenants/tenant_detail.html:15
+#: templates/tenants/tenant_list.html:17
+msgid "رقم المدني"
+msgstr ""
+
+#: templates/tenants/tenant_detail.html:21
+msgid "عرض الصورة"
+msgstr ""
+
+#: templates/tenants/tenant_form.html:3 templates/tenants/tenant_form.html:7
+msgid "تعديل المستأجر"
+msgstr ""
+
+#: templates/tenants/tenant_form.html:3 templates/tenants/tenant_form.html:7
+#: templates/tenants/tenant_list.html:11
+msgid "إضافة مستأجر جديد"
+msgstr ""
+
+#: templates/tenants/tenant_list.html:3 templates/tenants/tenant_list.html:7
+msgid "قائمة المستأجرين"
+msgstr ""
+
+#: templates/tenants/tenant_list.html:18
+msgid "الهاتف"
+msgstr ""
+
+#: templates/tenants/tenant_list.html:43
+msgid "لا توجد مستأجرين حالياً"
 msgstr ""
 
 #: tenants/apps.py:7 tenants/models.py:51
@@ -364,28 +588,12 @@ msgstr ""
 msgid "متأخر"
 msgstr ""
 
-#: tenants/models.py:12
-msgid "الاسم الكامل"
-msgstr ""
-
 #: tenants/models.py:16
 msgid "الرقم المدني / الهوية"
 msgstr ""
 
-#: tenants/models.py:20
-msgid "رقم الهاتف"
-msgstr ""
-
 #: tenants/models.py:26
 msgid "البريد الالكتروني"
-msgstr ""
-
-#: tenants/models.py:31
-msgid "العنوان"
-msgstr ""
-
-#: tenants/models.py:37
-msgid "صورة الهوية"
 msgstr ""
 
 #: tenants/models.py:50
