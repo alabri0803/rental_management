@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 14:16+0000\n"
+"POT-Creation-Date: 2025-05-16 14:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Mall"
 msgid "اسم الوحدة"
 msgstr "Unit Name"
 
-#: buildings/models.py:18
+#: buildings/models.py:18 templates/buildings/floor_list.html:14
 msgid "الطابق"
 msgstr "Floor"
 
@@ -214,6 +214,22 @@ msgstr "Dashboard"
 #: templates/base.html:17 templates/dashboard.html:20
 msgid "المستأجرين"
 msgstr "Tenants"
+
+#: templates/buildings/floor_list.html:3 templates/buildings/floor_list.html:6
+msgid "قائمة الطوابق"
+msgstr "Floors List"
+
+#: templates/buildings/floor_list.html:17
+msgid "عدد الوحدات:"
+msgstr "Units Count:"
+
+#: templates/buildings/floor_list.html:20
+msgid "عرض الوحدات"
+msgstr "View Units"
+
+#: templates/buildings/floor_list.html:28
+msgid "لا توجد طوابق مسجلة حالياً."
+msgstr "There are no floors currently registered."
 
 #: templates/dashboard.html:29
 msgid "الإجمالي"

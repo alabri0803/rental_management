@@ -25,3 +25,7 @@ def unit_update(request, pk):
     form.save()
     return redirect(reverse_lazy('buildings:detail', kwargs={'pk': pk}))
   return render(request, 'buildings/unit_form.html', {'form': form})
+
+def floor_list(request):
+  floors = Floor.objects.prefetch_related('units').all()
+  return render(request, 'buildings/floor_list.html', {'floors': floors})

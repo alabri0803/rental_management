@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "قائمة الطوابق" %}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>{% trans "قائمة الطوابق" %}</h2>
+</div>
+<div class="row">
+  {% for floor in floors %}
+  <div class="col-md-4 mb-3">
+    <div class="card border-info">
+      <div class="card-body">
+        <h5 class="card-title">
+          {% trans "الطابق" %} {{ floor.number }}
+        </h5>
+        <p class="card-text">
+          {% trans "عدد الوحدات:" %} {{ floor.units.count }}
+        </p>
+        <a href="{% url 'buildings:detail' floor.pk %}" class="btn btn-outline-info btn-sm">
+          {% trans "عرض الوحدات" %}
+        </a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-md-12">
+    <p class="alert alert-warning text-center">
+      {% trans "لا توجد طوابق مسجلة حالياً." %}
+    </p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
