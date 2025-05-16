@@ -1,37 +1,40 @@
 {% extends "base.html" %}
-{% block title %}لوحة التحكم{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "لوحة التحكم" %}{% endblock %}
 {% block content %}
-<h2>لوحة التحكم</h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>{% trans "لوحة التحكم" %}</h2>
+</div>
 <div class="row text-center">
   <div class="col-md-3">
     <div class="card bg-light border-success mb-3">
       <div class="card-body">
-        <h5 class="card-title">العقود</h5>
-        <p>{{ contract_count }}</p>
+        <h5 class="card-title">{% trans "العقود" %}</h5>
+        <p class="card-text">{{ contract_count }}</p>
       </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="card bg-light border-danger mb-3">
       <div class="card-body">
-        <h5 class="card-title">المستأجرين</h5>
-        <p>{{ tenant_count }}</p>
+        <h5 class="card-title">{% trans "المستأجرين" %}</h5>
+        <p class="card-text">{{ tenant_count }}</p>
       </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="card bg-light border-warning mb-3">
       <div class="card-body">
-        <h5 class="card-title">الوحدات</h5>
-        <p>{{ units_total }} ({{ units_occupied }} مشغولة)</p>
+        <h5 class="card-title">{% trans "الوحدات العقارية" %}</h5>
+        <p class="card-text">{% trans "الإجمالي" %}: {{ units_total }}<br>{% trans "مشغولة" %}: {{ units_occupied }}</p>
       </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="card bg-light border-primary mb-3">
       <div class="card-body">
-        <h5 class="card-title">الإيرادات</h5>
-        <p>{{ total_paid }} ر.ع</p>
+        <h5 class="card-title">{% trans "الإيرادات" %}</h5>
+        <p class="card-text">{{ total_paid }} ر.ع</p>
       </div>
     </div>
   </div>
