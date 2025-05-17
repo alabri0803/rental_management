@@ -4,4 +4,4 @@ from django.utils.translation import gettext_lazy as _
 class BuildingsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'buildings'
-    verbose_name = _('الوحدات العقارية')
+    verbose_name = _('إدارة الوحدات العقارية')

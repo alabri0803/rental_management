@@ -4,4 +4,4 @@ from django.utils.translation import gettext_lazy as _
 class PaymentsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'payments'
-    verbose_name = _('المدفوعات')
+    verbose_name = _('إدارة المدفوعات')
