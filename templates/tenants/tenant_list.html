@@ -6,15 +6,6 @@
   <h2>
     {% trans "قائمة المستأجرين" %}
   </h2>
-  <form method="post" action="{% url 'set_language' %}" class="d-inline">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="{{ request.path }}">
-    {% if LANGUAGE_CODE == 'ar' %}
-      <button name="language" value="en" class="btn btn-sm btn-light">{% trans "English" %}</button>
-      {% else %}
-      <button name="language" value="ar" class="btn btn-sm btn-light">{% trans "العربية" %}</button>
-    {% endif %}
-  </form>
 </div>
 <a href="{% url 'tenants:add' %}" class="btn btn-primary mb-3">
   {% trans "إضافة مستأجر جديد" %}
