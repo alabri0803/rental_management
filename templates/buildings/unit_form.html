@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{% if form.instance.pk %}{% trans "تعديل الوحدة" %}{% else %}{% trans "إضافة وحدة جديدة" %}{% endif %}{% endblock %}
+{% block title %}{% if form.instance.pk %}{% trans "تعديل بيانات الوحدة" %}{% else %}{% trans "إضافة وحدة جديدة" %}{% endif %}{% endblock %}
 {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
 <h2>
   {% if form.instance.pk %}
   {% trans "تعديل الوحدة العقارية" %}
@@ -9,6 +10,7 @@
   {% trans "إضافة وحدة عقارية جديدة" %}
   {% endif %}
 </h2>
+  </div>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="card shadow-sm border-secondary">
@@ -20,6 +22,11 @@
             {{ field.label_tag }}
           </label>
           {{ field }}
+          {% if field.help_text %}
+          <small class="form-text text-muted">
+            {{ field.help_text }}
+          </small>
+          {% endif %}
           {% if field.errors %}
           <div class="text-danger small">
             {{ field.errors|striptags }}

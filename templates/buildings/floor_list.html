@@ -3,21 +3,35 @@
 {% block title %}{% trans "قائمة الطوابق" %}{% endblock %}
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-  <h2>{% trans "قائمة الطوابق" %}</h2>
+  <h2>{% trans "قائمة الطوابق المتوفرة" %}</h2>
 </div>
 <div class="row">
   {% for floor in floors %}
-  <div class="col-md-4 mb-3">
-    <div class="card border-info">
+  <div class="col-md-4 mb-4">
+    <div class="card border-info shadow-sm h-100">
       <div class="card-body">
         <h5 class="card-title">
           {% trans "الطابق" %} {{ floor.number }}
         </h5>
         <p class="card-text">
-          {% trans "عدد الوحدات:" %} {{ floor.units.count }}
+          {% blocktrans count counter=floor.units.count as unit_count %}
+          وحدة {{ unit_count }} يحتوى على {% endblocktrans %}
         </p>
+        <ul class="list-group list-group-flush">
+          {% for unit in floor.units.all %}
+          <li class="list-group-item">
+            {{ unit.name }} - {{ unit.get_type_display }}
+          </li>
+          {% empty %}
+          <li class="list-group-item text-muted">
+            {% trans "لا توجد وحدات مسجلة في هذا الطابق" %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card-footer text-end">
         <a href="{% url 'buildings:detail' floor.pk %}" class="btn btn-outline-info btn-sm">
-          {% trans "عرض الوحدات" %}
+          {% trans "عرض التفاصيل" %}
         </a>
       </div>
     </div>
