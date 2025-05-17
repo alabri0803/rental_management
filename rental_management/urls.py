@@ -21,16 +21,20 @@ from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('i18n/', include('django.conf.urls.i18n'))
+]
 
-    path('', include('core.urls')),
+urlpatterns += i18n_patterns(
+    path('admin/', admin.site.urls),
+    path('buildings/', include('buildings.urls')),
     path('tenants/', include('tenants.urls')),
     path('contracts/', include('contracts.urls')),
     path('payments/', include('payments.urls')),
-    path('buildings/', include('buildings.urls')),
     path('reports/', include('reports.urls')),
+    path('', include('core.urls')),
     path('api/', include('api.urls')),
-    path('i18n/', include('django.conf.urls.i18n'))
-]
+    prefix_default_language=False
+)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
