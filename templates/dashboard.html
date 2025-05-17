@@ -3,39 +3,53 @@
 {% block title %}{% trans "لوحة التحكم" %}{% endblock %}
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-  <h2>{% trans "لوحة التحكم" %}</h2>
+  <h2>{% trans "لوحة التحكم الرئيسية" %}</h2>
 </div>
 <div class="row text-center">
-  <div class="col-md-3">
-    <div class="card bg-light border-success mb-3">
+  <div class="col-md-3 mb-3">
+    <div class="card border-success shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">{% trans "العقود" %}</h5>
-        <p class="card-text">{{ contract_count }}</p>
+        <h5 class="card-title text-success">{% trans "العقود النشطة" %}</h5>
+        <p class="card-text fs-4">{{ active_contracts }}</p>
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card bg-light border-danger mb-3">
+  <div class="col-md-3 mb-3">
+    <div class="card border-primary shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">{% trans "المستأجرين" %}</h5>
-        <p class="card-text">{{ tenant_count }}</p>
+        <h5 class="card-title text-primary">{% trans "عدد المستأجرين" %}</h5>
+        <p class="card-text fs-4">{{ tenant_count }}</p>
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card bg-light border-warning mb-3">
+  <div class="col-md-3 mb-3">
+    <div class="card border-info shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">{% trans "الوحدات العقارية" %}</h5>
-        <p class="card-text">{% trans "الإجمالي" %}: {{ units_total }}<br>{% trans "مشغولة" %}: {{ units_occupied }}</p>
+        <h5 class="card-title text-info">{% trans "الوحدات المتوفرة" %}</h5>
+        <p class="card-text fs-4">{{ available_units }}</p>
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card bg-light border-primary mb-3">
+  <div class="col-md-3 mb-3">
+    <div class="card border-warning shadow-sm">
       <div class="card-body">
-        <h5 class="card-title">{% trans "الإيرادات" %}</h5>
-        <p class="card-text">{{ total_paid }} {% trans "ر.ع" %}</p>
+        <h5 class="card-title text-warning">{% trans "إجمالي الإيرادات" %}</h5>
+        <p class="card-text">{{ total_payments }} {% trans "ر.ع" %}</p>
       </div>
+    </div>
+  </div>
+</div>
+<div class="mt-5">
+  <h4 class="mb-3">{% trans "الوصول السريع" %}</h4>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <a href="{% url 'reports:summary' %}" class="btn btn-outline-success w-100">{% trans "تقرير الملخص العام" %}</a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <a href="{% url 'contracts:list' %}" class="btn btn-outline-success w-100">{% trans "إدارة العقود" %}</a>
+    </div>
+    <div class="col-md-3 mb-3">
+      <a href="{% url 'payments:list' %}" class="btn btn-outline-warning w-100">{% trans "سجل المدفوعات" %}</a>
     </div>
   </div>
 </div>
