@@ -21,10 +21,7 @@ from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
-    path('i18n/', include('django.conf.urls.i18n'))
-]
-
-urlpatterns += i18n_patterns(
+    path('i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
     path('buildings/', include('buildings.urls')),
     path('tenants/', include('tenants.urls')),
@@ -33,6 +30,10 @@ urlpatterns += i18n_patterns(
     path('reports/', include('reports.urls')),
     path('', include('core.urls')),
     path('api/', include('api.urls')),
+]
+
+urlpatterns += i18n_patterns(
+
     prefix_default_language=False
 )
 if settings.DEBUG:
