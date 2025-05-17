@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 class TenantStatus(models.TextChoices):
   ACTIVE = 'AC', _('نشط')
   LEFT = 'LF', _('منسحب')
-  LATE = 'LT', _('متأخر')
+  LATE = 'LT', _('متأخر عن السداد')
 
 class Tenant(models.Model):
   full_name = models.CharField(

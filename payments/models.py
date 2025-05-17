@@ -15,12 +15,12 @@ class Payment(models.Model):
     verbose_name=_('العقد')
   )
   amount = models.DecimalField(
-    max_digits=12,
+    max_digits=10,
     decimal_places=3,
-    verbose_name=_('المبلغ')
+    verbose_name=_('المبلغ (ر.ع)')
   )
   date = models.DateField(
-    verbose_name=_('التاريخ الدفع')
+    verbose_name=_('تاريخ الدفع')
   )
   method = models.CharField(
     max_length=2,
@@ -35,7 +35,7 @@ class Payment(models.Model):
   )
 
   def __str__(self):
-    return f"{self.contract.contract_number} - {self.amount} ر.ع"
+    return f"{self.contract.contract_number} - {self.amount:.3f} ر.ع"
 
   class Meta:
     verbose_name = _("دفعة")

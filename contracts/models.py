@@ -33,7 +33,7 @@ class Contract(models.Model):
   rent_amount = models.DecimalField(
     max_digits=10,
     decimal_places=3,
-    verbose_name=_('الإيجار الشهري')
+    verbose_name=_('الإيجار الشهري (ر.ع)')
   )
   contract_file = models.FileField(
     upload_to='contracts/',
@@ -49,8 +49,8 @@ class Contract(models.Model):
   )
 
   def __str__(self):
-    return f"{self.contract_number}"
+    return self.contract_number
 
   class Meta:
-    verbose_name = _("عقد")
-    verbose_name_plural = _("العقود")
+    verbose_name = _("عقد إيجار")
+    verbose_name_plural = _("عقود الإيجار")

@@ -4,10 +4,9 @@ from django.utils.translation import gettext_lazy as _
 class UnitType(models.TextChoices):
   APARTMENT = 'AP', _('شقة')
   VILLA = 'VI', _('فيلا')
-  SHOP = 'SH', _('محل')
-  BILLBOARD = 'BLB', _('لوحة اعلانية')
+  SHOP = 'SH', _('محل تجاري')
   OFFICE = 'OFF', _('مكتب')
-  MALL = 'MAL', _('مول')
+  WAREHQUSE = 'WRH', _('مخزن')
 
 class Unit(models.Model):
   name = models.CharField(
@@ -15,11 +14,11 @@ class Unit(models.Model):
     verbose_name=_('اسم الوحدة')
   )
   floor = models.IntegerField(
-    verbose_name=_('الطابق')
+    verbose_name=_('رقم الطابق')
   )
   building_name = models.CharField(
     max_length=255,
-    verbose_name=_('اسم المبنى')
+    verbose_name=_('اسم البناية')
   )
   type = models.CharField(
     max_length=4,
@@ -28,11 +27,11 @@ class Unit(models.Model):
   )
   is_occupied = models.BooleanField(
     default=False,
-    verbose_name=_('مشغولة؟')
+    verbose_name=_('هل الوحدة مشغولة؟')
   )
   is_furnished = models.BooleanField(
     default=False,
-    verbose_name=_('مؤثثة؟')
+    verbose_name=_('هل مؤثثة؟')
   )
   area = models.DecimalField(
     max_digits=7,
@@ -50,5 +49,5 @@ class Unit(models.Model):
     return f'{self.building_name} - {self.name}'
 
   class Meta:
-    verbose_name = _("وحدة")
-    verbose_name_plural = _("الوحدات")
+    verbose_name = _("وحدة عقارية")
+    verbose_name_plural = _("الوحدات العقارية")
