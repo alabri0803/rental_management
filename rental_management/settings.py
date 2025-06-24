@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-orb&l#4e9p%rmnf!8l70g^8tbj+_wvsds#xwg_56so0j0cu*)u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # التطبيقات المخصصة
+    'users',
+    'properties',
+    'contracts',
 ]
 
 MIDDLEWARE = [
